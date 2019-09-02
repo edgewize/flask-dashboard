@@ -4,6 +4,7 @@ import templates.hello.wrangle as wrangle
 import templates.hello.utils as utils
 from flask import render_template, Blueprint, jsonify
 hello_blueprint = Blueprint('hello', __name__)
+fn = wrangle.FilmNetworks()
 
 
 @hello_blueprint.route('/')
@@ -12,16 +13,20 @@ def index():
     return render_template("index.html")
 
 
+@hello_blueprint.route('/api/<searchType>')
+def getAll(searchType):
+    return jsonify(fn.data[searchType])
+
+
+@hello_blueprint.route('/api/<searchType>/<searchId>')
+def getProfile(searchType, searchId):
+    return jsonify(fn.getProfile(searchType, searchId))
+    # return jsonify(fn.getRecordbyId(searchType, searchId))
+    
+
 @hello_blueprint.route('/api/check')
 def check():
-    files = ['film', 'cast', 'filmCast']
-    checkGood = True
-    for f in files:
-        path = f'{utils.ROOT_DIR}\\templates\\public\\data\\{f}.json'
-        fileCheck = os.path.exists(path)
-        if fileCheck is False:
-            checkGood = False
-        return jsonify({'message': checkGood})
+    return jsonify({'message': wrangle.checkFiles()})
 
 
 

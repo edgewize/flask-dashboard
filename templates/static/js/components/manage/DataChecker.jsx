@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Alert } from 'reactstrap';
+
 
 export default class DataChecker extends Component {
     constructor(props) {
@@ -40,7 +40,6 @@ export default class DataChecker extends Component {
                     }
                 },
             )
-            debugger;
     }
 
     render() {
@@ -48,8 +47,8 @@ export default class DataChecker extends Component {
             <React.Fragment>
                 {!this.state.filesExist &&
                     <div>
-                        {this.state.message && <Alert color={'primary'}>{this.state.message}</Alert>}
-                        {this.state.refeshExecuting ? <Alert color={'secondary'}>Loading...</Alert> : <Button color={"primary"} onClick={this.refreshData}>Refresh Data Files</Button>}
+                        {this.state.message && <a>{this.state.message}</a>}
+                        {this.state.refeshExecuting ? <a color={'secondary'}>Loading...</Alert> : <Button color={"primary"} onClick={this.refreshData}>Refresh Data Files</a>}
                     </div>
                 }
             </React.Fragment>

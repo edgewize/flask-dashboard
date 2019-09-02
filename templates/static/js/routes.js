@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter, Route, hashHistory } from 'react-router-dom';
-import Dashboard from './containers/Dashboard';
+import Home from './components/Home';
 
 export default (
     <HashRouter history={hashHistory}>
      <div>
-      <Route exact path='/' component={Dashboard} />
+      <Route exact path='/' component={Home} />
      </div>
     </HashRouter>
-);
+)
