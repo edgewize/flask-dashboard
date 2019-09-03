@@ -21,19 +21,14 @@ export default class Home extends Component {
    render() {
       return (
          <MainLayout>
-            <h1>Hello React!</h1>
-            <Row>
-               <Col md={"4"}>
-                  <CastPicker
-                     updateSearch={this.updateSearch} />
-               </Col>
-               <Col md={"8"}>
+            <div style={{ position: 'relative', height: 'calc(100vh - 50px)' }}>
+               <CastPicker updateSearch={this.updateSearch} />
+               <div style={{ "marginLeft": "64px", "padding": "15px 20px 0px" }}>
                   {this.state.searchId && <CastInfo
                      castId={this.state.searchId} />
                   }
-               </Col>
-            </Row>
-
+               </div>
+            </div>
          </MainLayout>
       )
    }

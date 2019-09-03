@@ -16,6 +16,9 @@ For this project, I used : **npm v4.6.1**, **pip v18.0**, **python v3.6.2**
 4. Create a python virtualenv(Optional)
 5. Install flask with the command `$ pip install flask`
 6. Install Reactjs with the command `$ npm i react react-dom --save-dev`
+7. Add config.json to root directory e.g. {
+                                            "tmdbkey": "your tmdbapi key" # https://pypi.org/project/tmdbsimple/
+                                        } 
 ### Running
 1. Go to the root directory and start the server with `python run.py`
 2. If all is working correctly, you will be given an address http://127.0.0.1:5000/ which you can open in your favorite browser and see our application running and displaying “Hello React!”

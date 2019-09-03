@@ -4,6 +4,7 @@ import pandas as pd
 import templates.hello.utils as utils
 # import utils
 
+
 def loadCreditData():
     filmRecords = []
     castRecords = []
@@ -13,19 +14,19 @@ def loadCreditData():
     for filmCast in creditData.values:
         filmId = filmCast[0]
         filmRecords.append({'filmId': filmId,
-            'name': filmCast[1]})
+                            'name': filmCast[1]})
         castList = json.loads(filmCast[2])
         for cast in castList:
             castId = cast['id']
             castRecords.append({'castId': castId,
                                 'name': cast['name']})
             filmCastRecords.append({'filmCastId': int(str(filmId) + str(castId)),
-                                    'filmId': filmId, 
+                                    'filmId': filmId,
                                     'castId': castId})
 
     data = {
-        'film': list({v['filmId']:v for v in filmRecords}.values()),
-        'cast': list({v['castId']:v for v in castRecords}.values())[:25],
+        'film': list({v['filmId']: v for v in filmRecords}.values()),
+        'cast': list({v['castId']: v for v in castRecords}.values()),
         'filmCast': filmCastRecords
     }
 
@@ -59,7 +60,6 @@ class FilmNetworks(object):
             with open(path) as json_file:
                 self.data[f] = json.load(json_file)
 
-
     def getLegitType(self, searchType):
         if searchType in utils.PROJECT_FILES:
             return searchType
@@ -72,14 +72,16 @@ class FilmNetworks(object):
 
     def getRecordbyId(self, searchType, searchId):
         searchType = self.getLegitType(searchType)
-        record = self.filterData(self.data[searchType], f'{searchType}Id', int(searchId))
+        record = self.filterData(
+            self.data[searchType], f'{searchType}Id', int(searchId))
         try:
             return record[0]
         except IndexError:
             print(record)
 
     def getRelations(self, searchType, searchId):
-        records = self.filterData(self.data['filmCast'], f'{searchType}Id', int(searchId))
+        records = self.filterData(
+            self.data['filmCast'], f'{searchType}Id', int(searchId))
         castIds = set([i['castId'] for i in records])
         filmIds = set([i['filmId'] for i in records])
         return {
@@ -94,17 +96,34 @@ class FilmNetworks(object):
         otherType = 'film'
         if searchType == otherType:
             otherType == 'cast'
-        otherRecords = [self.getRecordbyId(otherType, sId) for sId in relationRecords[f'{otherType}Ids']] 
+        otherRecords = [self.getRecordbyId(
+            otherType, sId) for sId in relationRecords[f'{otherType}Ids']]
+        profileNodes = [{'data': {
+            'id': profileRecord[f'{searchType}Id'],
+            'label': profileRecord['name']}
+        }]
+
+        otherNodes = [{'data': {
+            'id': i[f'{otherType}Id'],
+            'label': i['name']}
+        } for i in otherRecords]
+
+        edges = [{'data': {
+            'filmCastId': i['filmCastId'],
+            'source': i[f'{searchType}Id'],
+            'target': i[f'{otherType}Id']}
+            } for i in relationRecords['records']]
+        
+        elements = profileNodes + otherNodes + edges
         return {
             searchType: profileRecord,
-            'filmCast': relationRecords['records'],
+            'elements': elements,
             otherType: otherRecords
         }
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     fn = FilmNetworks()
     # castId = fn.data['cast'][10]['castId']
     castId = 1180936
     profile = fn.getProfile('cast', castId)
     print(profile)
-    

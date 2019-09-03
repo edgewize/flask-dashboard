@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
 import TopNav from '../components/layout/TopNav';
 
 // import BottomNav from '../components/layout/BottomNav';
@@ -14,9 +13,7 @@ export default class MainLayout extends Component {
       return (
          <React.Fragment>
             <TopNav />
-            <Container fluid={true}>
-               {children}
-            </Container>
+            {children}
          </React.Fragment>
       )
    }

@@ -1,5 +1,6 @@
 import json
 import os
+import tmdbsimple as tmdb
 import templates.hello.wrangle as wrangle
 import templates.hello.utils as utils
 from flask import render_template, Blueprint, jsonify
@@ -13,21 +14,27 @@ def index():
     return render_template("index.html")
 
 
+@hello_blueprint.route('/api/tmdb/person/<castId>')
+def tmdbCast(castId):
+    with open(f'{utils.ROOT_DIR}/config.json') as json_file:
+        tmdb.API_KEY = json.load(json_file)['tmdbkey']
+        person = tmdb.People(castId)
+    return jsonify(person.info())
+
+
 @hello_blueprint.route('/api/<searchType>')
 def getAll(searchType):
-    return jsonify(fn.data[searchType])
+    return jsonify(fn.data[searchType][:6])
 
 
 @hello_blueprint.route('/api/<searchType>/<searchId>')
 def getProfile(searchType, searchId):
     return jsonify(fn.getProfile(searchType, searchId))
-    # return jsonify(fn.getRecordbyId(searchType, searchId))
-    
+
 
 @hello_blueprint.route('/api/check')
 def check():
     return jsonify({'message': wrangle.checkFiles()})
-
 
 
 @hello_blueprint.route('/api/refresh')

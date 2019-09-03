@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { InputGroup, Label, Input } from 'reactstrap';
+import CastImage from './CastImage';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 
 export default class CastPicker extends Component {
@@ -28,17 +30,23 @@ export default class CastPicker extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <SideNav>
+                <SideNav.Toggle />
+
                 {!this.state.isLoading &&
-                    this.state.castRecords && this.state.castRecords.map((record) => (
-                        <div key={record.castId}>
-                            <a href={'#'} key={record.castId} value={record.name} onClick={(e) => this.updateSearch('cast', record.castId)}>
+                    this.state.castRecords && <SideNav.Nav defaultSelected={this.state.castRecords[0].castId}>
+                        {this.state.castRecords.map((record) => (<NavItem key={record.castId}
+                            eventKey={record.castId}
+                            onClick={(e) => { this.updateSearch('cast', record.castId) }}>
+                            <NavIcon>
+                                <CastImage castId={record.castId} />
+                            </NavIcon>
+                            <NavText>
                                 {record.name}
-                            </a>
-                        </div>
-                    ))
-                }
-            </React.Fragment>
+                            </NavText>
+                        </NavItem>))}
+                    </SideNav.Nav>}
+            </SideNav>
         );
     }
 }
