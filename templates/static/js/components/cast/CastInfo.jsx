@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Cytoscape from 'cytoscape';
-import COSEBilkent from 'cytoscape-cose-bilkent';
-import CytoscapeComponent from 'react-cytoscapejs';
 import { Row, Col } from 'reactstrap';
-Cytoscape.use(COSEBilkent);
 
 export default class CastInfo extends Component {
     constructor(props) {
@@ -32,13 +28,14 @@ export default class CastInfo extends Component {
         this.handleProfile(this.props.castId);
     }
 
-    componentDidUpdate() {
-        if (this.props.castId != this.state.profile.cast.castId) {
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.castId != this.props.castId) {
             this.handleProfile(this.props.castId);
         }
     }
 
     render() {
+        // debugger;
         return (
             <React.Fragment>
                 {!this.state.isLoading && <React.Fragment>
@@ -50,10 +47,7 @@ export default class CastInfo extends Component {
                             {this.state.profile.film.map((f) => (<div key={f.filmId}>{f.name}</div>))}
                         </Col>
                         <Col md={"6"}>
-                            <CytoscapeComponent
-                                elements={this.state.profile.elements}
-                                layout={{ name: 'cose-bilkent' }}
-                                style={{ width: '100%', height: '600px' }} />
+                            
                         </Col>
                     </Row>
                 </React.Fragment>}

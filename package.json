@@ -41,10 +41,9 @@
     "@trendmicro/react-sidenav": "^0.4.5",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.2.0",
-    "cytoscape": "^3.9.1",
+    "cytoscape": "^3.10.0",
     "cytoscape-cose-bilkent": "^4.0.0",
     "history": "^4.7.2",
-    "react-cytoscapejs": "^1.2.0",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^8.0.1",
     "style-loader": "^1.0.0"
