@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
+import FilmCard from '../film/FilmCard';
 
 export default class CastInfo extends Component {
     constructor(props) {
@@ -43,12 +44,9 @@ export default class CastInfo extends Component {
                         {this.state.profile.cast.name}
                     </h1>
                     <Row>
-                        <Col md={"3"}>
-                            {this.state.profile.film.map((f) => (<div key={f.filmId}>{f.name}</div>))}
-                        </Col>
-                        <Col md={"6"}>
-                            
-                        </Col>
+                        {this.state.profile.film.map((f) => (<Col md={"2"} key={f.filmId}>
+                            {<FilmCard searchId={f.filmId}/>}
+                        </Col>))}
                     </Row>
                 </React.Fragment>}
             </React.Fragment>

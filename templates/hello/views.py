@@ -14,12 +14,21 @@ def index():
     return render_template("index.html")
 
 
-@hello_blueprint.route('/api/tmdb/person/<castId>')
-def tmdbCast(castId):
+@hello_blueprint.route('/api/tmdb/<searchType>/<searchId>')
+def tmdbCast(searchType, searchId):
+    # searchType: person, film
+    # searchId: TMDB film or person id depending on searchType
+    result = None
     with open(f'{utils.ROOT_DIR}/config.json') as json_file:
         tmdb.API_KEY = json.load(json_file)['tmdbkey']
-        person = tmdb.People(castId)
-    return jsonify(person.info())
+    if searchType == 'person':
+        result = tmdb.People(searchId)
+    elif searchType == 'film':
+        result = tmdb.Movies(searchId)
+    if result:       
+        return jsonify(result.info())
+    # else:
+        # handle bad request
 
 
 @hello_blueprint.route('/api/<searchType>')
