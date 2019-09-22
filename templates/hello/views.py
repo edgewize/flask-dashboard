@@ -11,6 +11,9 @@ fn = wrangle.FilmNetworks()
 @hello_blueprint.route('/')
 @hello_blueprint.route('/hello')
 def index():
+    print()
+    print(utils.ROOT_DIR)
+    print()
     return render_template("index.html")
 
 
