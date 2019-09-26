@@ -11,9 +11,6 @@ fn = wrangle.FilmNetworks()
 @hello_blueprint.route('/')
 @hello_blueprint.route('/hello')
 def index():
-    print()
-    print(utils.ROOT_DIR)
-    print()
     return render_template("index.html")
 
 
@@ -28,7 +25,7 @@ def tmdbCast(searchType, searchId):
         result = tmdb.People(searchId)
     elif searchType == 'film':
         result = tmdb.Movies(searchId)
-    if result:       
+    if result:
         return jsonify(result.info())
     # else:
         # handle bad request
@@ -36,12 +33,14 @@ def tmdbCast(searchType, searchId):
 
 @hello_blueprint.route('/api/<searchType>')
 def getAll(searchType):
-    return jsonify(fn.data[searchType][:6])
+    return jsonify(fn.data[searchType][:10])
 
 
 @hello_blueprint.route('/api/<searchType>/<searchId>')
 def getProfile(searchType, searchId):
-    return jsonify(fn.getProfile(searchType, searchId))
+    profile = fn.getProfile(searchType, searchId)
+    # pdb.set_trace()
+    return jsonify(profile)
 
 
 @hello_blueprint.route('/api/check')
@@ -49,6 +48,6 @@ def check():
     return jsonify({'message': wrangle.checkFiles()})
 
 
-@hello_blueprint.route('/api/refresh')
-def refresh():
-    return jsonify({'message': wrangle.loadCreditData()})
+@hello_blueprint.route('/api/refresh/<limit>')
+def refresh(limit):
+    return jsonify({'message': wrangle.loadProjectData(int(limit))['message']})

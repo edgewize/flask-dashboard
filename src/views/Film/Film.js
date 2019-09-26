@@ -3,10 +3,9 @@ import {
   Col,
   Row,
 } from 'reactstrap';
-import CastTable from './CastTable';
-import CastInfo from './CastInfo';
 
-class Cast extends Component {
+
+class Film extends Component {
   constructor(props) {
     super(props);
     this.updateSearch = this.updateSearch.bind(this)
@@ -22,20 +21,20 @@ class Cast extends Component {
   }
 
   render() {
+
     return (
       <div className="animated fadeIn">
         <Row>
-        {this.state.searchId && 
-          <Col md="8">
-            <CastInfo castId={this.state.searchId} />
+        {this.state.searchId &&
+          <Col md="2">
+
           </Col>}
           <Col md={this.state.searchId ? 4 : 12}>
-            <CastTable updateSearch={this.updateSearch} />
           </Col>
         </Row>
-      </div >
+      </div>
     );
   }
 }
 
-export default Cast;
+export default Film;

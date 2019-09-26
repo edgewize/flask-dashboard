@@ -24,7 +24,7 @@ class Widget03 extends Component {
     const data = dataBox();
     const variant = data.variant;
 
-    if (!variant || ['facebook', 'twitter', 'linkedin', 'google-plus'].indexOf(variant) < 0) {
+    if (!variant || ['facebook', 'twitter', 'linkedin', 'google-plus', 'film'].indexOf(variant) < 0) {
       return (null);
     }
 
