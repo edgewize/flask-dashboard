@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "env\\Scripts\\python.exe",
+    "python.pythonPath": "/home/tayloredginton/Documents/flask-dashboard/env/bin/python3",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
 }
