@@ -1,11 +1,11 @@
 import json
 import os
-import templates.hello.wrangle as wrangle
 import templates.hello.utils as utils
 import templates.hello.RiverFlow as RiverFlow
 from flask import render_template, Blueprint, jsonify, request
 hello_blueprint = Blueprint('hello', __name__)
-# fn = wrangle.FilmNetworks()
+from flask_cors import CORS
+cors = CORS(hello_blueprint)
 
 
 @hello_blueprint.route('/')

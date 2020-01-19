@@ -1,6 +1,7 @@
 import os
 import json
 import pandas as pd
+import tmdbsimple as tmdb
 import templates.hello.utils as utils
 # import utils
 
@@ -111,15 +112,15 @@ class FilmNetworks(object):
             # 'elements': elements,
         }
 
-# def getTmdbInfo(searchType, searchId):
-#     with open(f'{utils.ROOT_DIR}/config.json') as json_file:
-#         tmdb.API_KEY = json.load(json_file)['tmdbkey']
-#     if searchType == 'cast':
-#         result = tmdb.People(searchId)
-#     elif searchType == 'film':
-#         result = tmdb.Movies(searchId)
-#     if result:
-#         return result.info()
+def getTmdbInfo(searchType, searchId):
+    with open(f'{utils.ROOT_DIR}/config.json') as json_file:
+        tmdb.API_KEY = json.load(json_file)['tmdbkey']
+    if searchType == 'cast':
+        result = tmdb.People(searchId)
+    elif searchType == 'film':
+        result = tmdb.Movies(searchId)
+    if result:
+        return result.info()
 
 def loadFilmData():
     filmRecords = pd.read_csv(
@@ -142,9 +143,9 @@ def loadProjectData(limit=None):
         creditData = creditData.head(limit)
     for filmCast in creditData.values:
         filmId = filmCast[0]
-        # filmInfo = getTmdbInfo('film', filmId)
-        # filmInfo['filmId'] = filmId
-        # filmRecords.append(filmInfo)
+        filmInfo = getTmdbInfo('film', filmId)
+        filmInfo['filmId'] = filmId
+        filmRecords.append(filmInfo)
         castList = json.loads(filmCast[2])
         for cast in castList:
             castId = cast['id']
