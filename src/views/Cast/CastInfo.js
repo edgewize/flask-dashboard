@@ -81,27 +81,18 @@ export default class CastInfo extends Component {
             .then(res_1 => res_1.json())
             .then(
                 (result_1) => {
-                    fetch("/api/cast/" + castId)
-                        .then(res_2 => res_2.json())
-                        .then(
-                            (result_2) => {
-                                this.setState({
-                                    tmdbInfo: result_1,
-                                    profile: result_2,
-                                    isLoading: false
-                                })
-                            })
+                    
                 });
     }
 
     componentDidMount() {
-        this.getInfo(this.props.castId);
+        // this.getInfo(this.props.castId);
 
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.castId != this.props.castId) {
-            this.getInfo(this.props.castId);
+            // this.getInfo(this.props.castId);
         }
     }
 
