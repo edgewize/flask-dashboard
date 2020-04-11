@@ -15,6 +15,7 @@ def index():
 
 @hello_blueprint.route('/api/flow/<siteId>')
 def flow(siteId):
+    # params = ['period', 'startDate', ]
     # import pdb; pdb.set_trace()
     dashboard = RiverFlow.Dashboard(siteId, period=request.args.get('period'),
                                     start_date=request.args.get('startDate'), end_date=request.args.get('end_date'))

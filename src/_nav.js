@@ -1,8 +1,8 @@
 export default {
   items: [
     {
-      name: 'Cast',
-      url: '/cast',
+      name: 'Wave',
+      url: '/wave',
       icon: 'icon-speedometer',
     },
     {

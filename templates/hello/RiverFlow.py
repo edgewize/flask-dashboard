@@ -9,6 +9,8 @@ class Dashboard(object):
         self.period = period
         self.start_date = start_date
         self.end_date = end_date
+        if self.end_date is None:
+            self.end_date = str(datetime.datetime.today().date())
         if start_date and end_date:
             hf = hydrofunctions.NWIS(
                 siteId, 'dv', start_date=start_date, end_date=end_date)
@@ -22,11 +24,16 @@ class Dashboard(object):
         self.data = hf.get_data().df()
 
     def site_info(self):
+        df = self.data
+        most_recent_record = df.loc[df.index.max()]
+        # CFS col names are variable but they are always first
+        most_recent_cfs = most_recent_record[df.columns[0]]
         data = {
             'site_id': self.siteId,
             'site_name': self.hf.siteName,
             'start_date': self.start_date,
-            'end_date': self.end_date
+            'end_date': self.end_date,
+            'most_recent_cfs': most_recent_cfs
         }
         return data
 

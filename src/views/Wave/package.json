@@ -1,6 +1,6 @@
 {
-  "name": "Film",
+  "name": "Wave",
   "version": "0.0.0",
   "private": true,
-  "main": "./Film.js"
+  "main": "./Wave.js"
 }
