@@ -33,7 +33,7 @@ export default class FilmCover extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.filmId != this.props.filmId) {
+        if (prevProps.filmId !== this.props.filmId) {
             this.getInfo(this.props.filmId);
         }
     }

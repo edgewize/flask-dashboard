@@ -100,7 +100,7 @@ export default class CastInfo extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.castId != this.props.castId) {
+        if (prevProps.castId !== this.props.castId) {
             this.getInfo(this.props.castId);
         }
     }
