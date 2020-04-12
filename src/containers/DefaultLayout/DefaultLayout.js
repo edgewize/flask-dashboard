@@ -1,7 +1,7 @@
-import React, { Component, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import * as router from 'react-router-dom';
-import { Container } from 'reactstrap';
+import React, { Component, Suspense } from "react";
+import { Route, Switch } from "react-router-dom";
+import * as router from "react-router-dom";
+import { Container } from "reactstrap";
 
 import {
   AppAside,
@@ -12,23 +12,56 @@ import {
   AppSidebarHeader,
   AppSidebarMinimizer,
   AppBreadcrumb2 as AppBreadcrumb,
-  AppSidebarNav2 as AppSidebarNav,
-} from '@coreui/react';
-// sidebar nav config
-import navigation from '../../_nav';
+  AppSidebarNav2 as AppSidebarNav
+} from "@coreui/react";
 // routes config
-import routes from '../../routes';
+import routes from "../../routes";
 
-const DefaultAside = React.lazy(() => import('./DefaultAside'));
-const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
+const DefaultAside = React.lazy(() => import("./DefaultAside"));
+const DefaultFooter = React.lazy(() => import("./DefaultFooter"));
 
 class DefaultLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      data: null
+    };
+  }
 
-  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
+  loading = () => (
+    <div className="animated fadeIn pt-1 text-center">Loading...</div>
+  );
 
-  signOut(e) {
-    e.preventDefault()
-    this.props.history.push('/login')
+  // signOut(e) {
+  //   e.preventDefault();
+  //   this.props.history.push("/login");
+  // }
+
+  getSiteData() {
+    let api_target =
+      process.env.NODE_ENV === "development" ? "http://127.0.0.1:9999" : "";
+    let fetch_path = api_target + "/api/sites/getinfo";
+    fetch(fetch_path)
+      .then(res => res.json())
+      .then(result => {
+        let nav_recs = result.map(record => {
+          let d = {
+            name: record["name"],
+            url: "/wave/" + record["site_id"],
+            icon: "icon-pencil"
+          };
+          return d;
+        });
+        this.setState({
+          isLoading: false,
+          data: {items:nav_recs}
+        });
+      });
+  }
+
+  componentDidMount() {
+    this.getSiteData();
   }
 
   render() {
@@ -39,13 +72,19 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+              {!this.state.isLoading && (
+                <AppSidebarNav
+                  navConfig={this.state.data}
+                  {...this.props}
+                  router={router}
+                />
+              )}
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
           <main className="main">
-            <AppBreadcrumb appRoutes={routes} router={router}/>
+            <AppBreadcrumb appRoutes={routes} router={router} />
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>
@@ -56,10 +95,9 @@ class DefaultLayout extends Component {
                         path={route.path}
                         exact={route.exact}
                         name={route.name}
-                        render={props => (
-                          <route.component {...props} />
-                        )} />
-                    ) : (null);
+                        render={props => <route.component {...props} />}
+                      />
+                    ) : null;
                   })}
                 </Switch>
               </Suspense>

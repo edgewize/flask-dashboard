@@ -1,35 +1,38 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Row,
-} from "reactstrap";
-import WaveSummary from "../Wave/WaveSummary";
+import { Col, Row, Jumbotron } from "reactstrap";
 import "react-datepicker/dist/react-datepicker.css";
+import SummaryGallery from "./SummaryGallery";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
-      site_list: [13246000, 13245000, 13206000],
-      query: {
-        site_id: 13206000,
-      },
+      isLoading: true
     };
   }
 
   render() {
     return (
-      <div className="animated fadeIn mt-2">
-        <React.Fragment>
-          <Row>
-            {this.state.site_list.map(site_id => (
-            <Col md="4">
-              <WaveSummary site_id={site_id} />
-            </Col>
-            ))}
-          </Row>
-        </React.Fragment>
+      <div className="animated fadeIn mt-5">
+        <Row>
+          <Col>
+            <Jumbotron className="bg-secondary">
+              <h1 className="display-3">River Surf Analytics</h1>
+              <p className="lead">
+                Track river flow trends at surf waves in Idaho,
+              </p>
+              <hr className="my-2" />
+              <p>
+                Project made possible by information from the
+                <a href="https://waterdata.usgs.gov/nwis">
+                  US Geological survey
+                </a>
+                and <a href="http://riverbreak.com/">Riverbreak Magazine</a>
+              </p>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <SummaryGallery />
       </div>
     );
   }

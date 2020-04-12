@@ -12,6 +12,7 @@ import LineChart from "./LineChart";
 import StatsTable from "./StatsTable";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { buildApiUrl } from "../../utils";
 
 class Wave extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Wave extends Component {
       isLoading: true,
       query: {
         start_date: new Date("2019-01-02"),
-        site_id: 13206000,
         freq: "M"
       },
       data: null
@@ -38,7 +38,6 @@ class Wave extends Component {
   };
 
   handleDateChange = (date, id) => {
-    debugger;
     this.setState({
       query: {
         ...this.state.query,
@@ -49,11 +48,8 @@ class Wave extends Component {
 
   getFlowData() {
     let site_id = this.props.match.params.site_id;
-    let api_target =
-      process.env.NODE_ENV === "development" ? "http://127.0.0.1:9999" : "";
     let fetch_path =
-      api_target +
-      "/api/flow/" + site_id +
+      buildApiUrl("/api/flow/" + site_id) +
       "?startDate=" +
       this.state.query.start_date.toISOString().split("T")[0] +
       "&freq=" +
@@ -72,8 +68,8 @@ class Wave extends Component {
     this.getFlowData();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.site_id !== this.props.site_id) {
       this.getFlowData();
     }
   }

@@ -22,3 +22,8 @@ def flow(siteId):
     data = dashboard.build(freq=request.args.get('freq'))
     # import pdb; pdb.set_trace();
     return jsonify(data)
+
+@hello_blueprint.route('/api/sites/getinfo')
+def sites():
+    data =  RiverFlow.getSiteData()
+    return jsonify(data)

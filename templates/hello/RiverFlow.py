@@ -1,6 +1,7 @@
 import pandas as pd
 import hydrofunctions
 import datetime
+import templates.hello.utils as utils
 
 
 class Dashboard(object):
@@ -96,6 +97,10 @@ class Dashboard(object):
         }
         return data
 
+def getSiteData():
+    config = utils.getConfig()
+    data_list = config['wave_sites']
+    return data_list
 
 if __name__ == "__main__":
     boiseRiver = '13206000'

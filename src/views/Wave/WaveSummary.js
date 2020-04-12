@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Badge, Card, CardBody, CardHeader, Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import { buildApiUrl } from "../../utils";
 
 class WaveSummary extends Component {
   constructor(props) {
@@ -16,12 +17,9 @@ class WaveSummary extends Component {
   }
 
   getFlowData() {
-    let api_target =
-      process.env.NODE_ENV === "development" ? "http://127.0.0.1:9999" : "";
+    let site_id = this.props.site_id;
     let fetch_path =
-      api_target +
-      "/api/flow/" +
-      this.props.site_id +
+      buildApiUrl("/api/flow/" + site_id) +
       "?startDate=" +
       this.state.query.start_date.toISOString().split("T")[0] +
       "&freq=" +
@@ -55,7 +53,7 @@ class WaveSummary extends Component {
         {!this.state.isLoading && (
           <React.Fragment>
             <CardHeader>
-            {this.state.data.info.site_name}
+              {this.state.data.info.site_name}
               <div className="card-header-actions">
                 <Badge color="success" className="float-right">
                   Success
@@ -63,8 +61,11 @@ class WaveSummary extends Component {
               </div>
             </CardHeader>
             <CardBody>
-            {this.state.data.info.most_recent_cfs} CFS on {this.state.data.info.end_date}
-            <Button tag={Link} to={"/wave/"+this.props.site_id}>Info</Button>
+              {this.state.data.info.most_recent_cfs} CFS on{" "}
+              {this.state.data.info.end_date}
+              <Button tag={Link} to={"/wave/" + this.props.site_id}>
+                Info
+              </Button>
             </CardBody>
           </React.Fragment>
         )}
