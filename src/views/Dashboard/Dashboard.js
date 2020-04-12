@@ -16,17 +16,17 @@ class Dashboard extends Component {
       <div className="animated fadeIn mt-5">
         <Row>
           <Col>
-            <Jumbotron className="bg-secondary">
+            <Jumbotron className="bg-light">
               <h1 className="display-3">River Surf Analytics</h1>
               <p className="lead">
-                Track river flow trends at surf waves in Idaho,
+                Track river flow trends for Idaho surf waves.
               </p>
               <hr className="my-2" />
               <p>
                 Project made possible by information from the
                 <a href="https://waterdata.usgs.gov/nwis">
                   US Geological survey
-                </a>
+                </a>{" "}
                 and <a href="http://riverbreak.com/">Riverbreak Magazine</a>
               </p>
             </Jumbotron>

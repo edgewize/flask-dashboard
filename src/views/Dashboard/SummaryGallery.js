@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import WaveSummary from "../Wave/WaveSummary";
 import { buildApiUrl } from "../../utils";
+import Loader from "../../components/Loader";
 
 class SummaryGallery extends Component {
   constructor(props) {
@@ -30,17 +31,19 @@ class SummaryGallery extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        {!this.state.isLoading && (
-          <Row>
-            {this.state.data.map(record => (
+      <Loader isLoading={this.state.isLoading}>
+        <Row>
+          {!this.state.isLoading &&
+            this.state.data.map(record => (
               <Col md="4">
-                <WaveSummary site_id={record["site_id"]} />
+                <WaveSummary
+                  key={record["site_id"]}
+                  site_id={record["site_id"]}
+                />
               </Col>
             ))}
-          </Row>
-        )}
-      </React.Fragment>
+        </Row>
+      </Loader>
     );
   }
 }

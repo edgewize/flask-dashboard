@@ -6,13 +6,15 @@ import {
   ButtonGroup,
   Card,
   CardHeader,
-  CardBody
+  CardBody,
+  Jumbotron
 } from "reactstrap";
 import LineChart from "./LineChart";
 import StatsTable from "./StatsTable";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { buildApiUrl } from "../../utils";
+import Loader from "../../components/Loader";
 
 class Wave extends Component {
   constructor(props) {
@@ -28,11 +30,9 @@ class Wave extends Component {
   }
 
   handleChange = (value, id) => {
-    this.setState({ isLoading: false });
     let update = { ...this.state.query };
     update[id] = value;
     this.setState({
-      isLoading: true,
       query: update
     });
   };
@@ -68,8 +68,12 @@ class Wave extends Component {
     this.getFlowData();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.site_id !== this.props.site_id) {
+  componentDidUpdate(prevProps, prevState) {
+    let siteChange =
+      prevProps.match.params.site_id !== this.props.match.params.site_id;
+    let stateChange = prevState.query !== this.state.query;
+    if (siteChange || stateChange) {
+      this.setState({ isLoading: true });
       this.getFlowData();
     }
   }
@@ -78,64 +82,71 @@ class Wave extends Component {
     return (
       <div className="animated fadeIn mt-2">
         <React.Fragment>
+          <Jumbotron className="bg-light">
+            {!this.state.isLoading && <h1>{this.state.data.info.site_name}</h1>}
+            <hr />
+            <Row>
+              <Col sm="6" md="3">
+                <label>Start date:</label>
+                <DatePicker
+                  selected={this.state.query.start_date}
+                  onChange={date => this.handleChange(date, "start_date")}
+                />
+              </Col>
+              <Col sm="6" md="3">
+                <ButtonGroup>
+                  {Object.entries({
+                    Daily: "D",
+                    Weekly: "W",
+                    Month: "M"
+                  }).map(([key, value]) => (
+                    <Button
+                      key={key}
+                      color={
+                        this.state.query.freq === value
+                          ? "primary"
+                          : "secondary"
+                      }
+                      value={value}
+                      onClick={e =>
+                        this.handleChange(e.currentTarget.value, "freq")
+                      }
+                    >
+                      {key}
+                    </Button>
+                  ))}
+                </ButtonGroup>
+              </Col>
+            </Row>
+          </Jumbotron>
           <Row>
-            <Col>
+            <Col md="6">
               <Card>
                 <CardHeader>
-                  <Row>
-                    <Col md="6">
-                      <div className={"mt-2"}>River flow timeline (CFS)</div>
-                    </Col>
-                    <Col sm="6" md="3">
-                      <label>Start date:</label>
-                      <DatePicker
-                        selected={this.state.query.start_date}
-                        onChange={date => this.handleChange(date, "start_date")}
-                      />
-                    </Col>
-                    <Col sm="6" md="3">
-                      <ButtonGroup>
-                        {Object.entries({
-                          Daily: "D",
-                          Weekly: "W",
-                          Month: "M"
-                        }).map(([key, value]) => (
-                          <Button
-                            color={
-                              this.state.query.freq === value
-                                ? "primary"
-                                : "secondary"
-                            }
-                            value={value}
-                            onClick={e =>
-                              this.handleChange(e.currentTarget.value, "freq")
-                            }
-                          >
-                            {key}
-                          </Button>
-                        ))}
-                      </ButtonGroup>
-                    </Col>
-                  </Row>
+                  <div className={"mt-2"}>River flow timeline (CFS)</div>
                 </CardHeader>
-                {this.state.isLoading && (
-                  <div className="animated fadeIn pt-1 text-center">
-                    Loading...
-                  </div>
-                )}
-                {!this.state.isLoading && (
-                  <CardBody>
-                    <b>{this.state.data.info.site_name}</b>
-                    <Row>
-                      <Col md="8">
-                        <LineChart data={this.state.data.charts.timeline} />
-                      </Col>
-                      <Col md="4">
-                        <StatsTable data={this.state.data.stats.yearly} />
-                      </Col>
-                    </Row>
-                  </CardBody>
-                )}
+                <CardBody>
+                  <Loader isLoading={this.state.isLoading}>
+                    {!this.state.isLoading && (
+                      <LineChart
+                        data={this.state.data.charts.timeline}
+                        height={300}
+                      />
+                    )}
+                  </Loader>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col md="6">
+              <Card>
+                <CardHeader>Flow statistics (CFS)</CardHeader>
+                <CardBody>
+                  <Loader isLoading={this.state.isLoading}>
+                    {!this.state.isLoading && (
+                      <StatsTable data={this.state.data.stats.yearly} />
+                    )}
+                  </Loader>
+                </CardBody>
               </Card>
             </Col>
           </Row>
@@ -144,5 +155,4 @@ class Wave extends Component {
     );
   }
 }
-
 export default Wave;

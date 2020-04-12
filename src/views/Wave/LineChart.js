@@ -25,9 +25,9 @@ class LineChart extends Component {
     return (
       <div
         className="chart-wrapper"
-        style={{ height: 300 + "px"}}
+        style={{ height: this.props.height + "px"}}
       >
-        <Line data={mainChart} options={mainChartOpts} height={300} />
+        <Line data={mainChart} options={mainChartOpts} height={this.props.height} />
       </div>
     );
   }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Badge, Card, CardBody, CardHeader, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import { buildApiUrl } from "../../utils";
+import LineChart from "./LineChart";
+import Loader from "../../components/Loader";
 
 class WaveSummary extends Component {
   constructor(props) {
@@ -9,8 +11,7 @@ class WaveSummary extends Component {
     this.state = {
       isLoading: true,
       query: {
-        start_date: new Date("2020-01-01"),
-        freq: "D"
+        period: "P7D"
       },
       data: null
     };
@@ -20,10 +21,8 @@ class WaveSummary extends Component {
     let site_id = this.props.site_id;
     let fetch_path =
       buildApiUrl("/api/flow/" + site_id) +
-      "?startDate=" +
-      this.state.query.start_date.toISOString().split("T")[0] +
-      "&freq=" +
-      this.state.query.freq;
+      "?period=" +
+      this.state.query.period;
     fetch(fetch_path)
       .then(res => res.json())
       .then(result => {
@@ -47,28 +46,37 @@ class WaveSummary extends Component {
   render() {
     return (
       <Card>
-        {this.state.isLoading && (
-          <div className="animated fadeIn pt-1 text-center">Loading...</div>
-        )}
-        {!this.state.isLoading && (
-          <React.Fragment>
-            <CardHeader>
-              {this.state.data.info.site_name}
-              <div className="card-header-actions">
-                <Badge color="success" className="float-right">
-                  Success
-                </Badge>
-              </div>
-            </CardHeader>
-            <CardBody>
-              {this.state.data.info.most_recent_cfs} CFS on{" "}
-              {this.state.data.info.end_date}
-              <Button tag={Link} to={"/wave/" + this.props.site_id}>
-                Info
-              </Button>
-            </CardBody>
-          </React.Fragment>
-        )}
+        <Loader isLoading={this.state.isLoading}>
+          {!this.state.isLoading && (
+            <React.Fragment>
+              <CardHeader>
+                {this.state.data.info.site_name}
+                <div className="card-header-actions">
+                  {this.state.data.info.status}
+                  <Badge
+                    color={this.state.data.info.status ? "primary" : "warning"}
+                    className="float-right"
+                  >
+                    <h6 className="mb-0">{this.state.data.info.status ? "IN SESSION" : "NO SUFING"}</h6>
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardBody>
+                {this.state.data.charts && (
+                  <LineChart
+                    data={this.state.data.charts.timeline}
+                    height={100}
+                  />
+                )}
+                {this.state.data.info.most_recent_cfs} CFS on{" "}
+                {this.state.data.info.end_date}
+                <Button tag={Link} to={"/wave/" + this.props.site_id}>
+                  Info
+                </Button>
+              </CardBody>
+            </React.Fragment>
+          )}
+        </Loader>
       </Card>
     );
   }

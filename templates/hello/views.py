@@ -19,8 +19,10 @@ def flow(siteId):
     # import pdb; pdb.set_trace()
     dashboard = RiverFlow.Dashboard(siteId, period=request.args.get('period'),
                                     start_date=request.args.get('startDate'), end_date=request.args.get('end_date'))
-    data = dashboard.build(freq=request.args.get('freq'))
-    # import pdb; pdb.set_trace();
+    if request.args.get('freq'):
+        data = dashboard.build(freq=request.args.get('freq'))
+    else:
+        data = dashboard.build()
     return jsonify(data)
 
 @hello_blueprint.route('/api/sites/getinfo')

@@ -22,27 +22,38 @@ class Dashboard(object):
             hf = hydrofunctions.NWIS(
                 siteId, 'dv', period=period)
         self.hf = hf
-        self.data = hf.get_data().df()
+        try:
+            self.data = hf.get_data().df()
+        except hydrofunctions.exceptions.HydroNoDataError:
+            self.data = None
 
     def site_info(self):
-        df = self.data
-        most_recent_record = df.loc[df.index.max()]
-        # CFS col names are variable but they are always first
-        most_recent_cfs = most_recent_record[df.columns[0]]
+        start_date = self.start_date
+        if start_date is None and self.data is not None:
+            start_date = str(self.data.index.min().date())
         data = {
             'site_id': self.siteId,
             'site_name': self.hf.siteName,
-            'start_date': self.start_date,
+            'start_date': start_date,
             'end_date': self.end_date,
-            'most_recent_cfs': most_recent_cfs
         }
+        if self.data is not None:
+            most_recent = self.getMostRecentCfs()
+            data['most_recent_cfs'] = most_recent
+            info = [i for i in utils.getConfig()['wave_sites']
+                    if i['site_id'] == self.siteId]
+            if len(info) > 0:
+                info = info[0]
+                now_above_min = int(most_recent) > int(info['session']['low'])
+                in_session = True if now_above_min else False
+                data['status'] = in_session
         return data
 
     def frequency_by_year(self, freq='M'):
         time_means = self.data.groupby(pd.Grouper(freq=freq)).mean()
         index_group = {
             'M': time_means.index.month,
-            'D': time_means.index.date,
+            'D': time_means.index.dayofyear,
             'W': time_means.index.week
         }[freq]
         avg_by_year = time_means.groupby([index_group, time_means.index.year]).mean()[
@@ -73,7 +84,7 @@ class Dashboard(object):
         }
 
     def getYearlyStats(self, yearly_avgs):
-        stats = yearly_avgs.describe()
+        stats = yearly_avgs.describe().fillna('NaN')
         result = []
         for i in stats.columns:
             s = stats[i].to_dict()
@@ -81,26 +92,33 @@ class Dashboard(object):
             result.append(s)
         return result
 
-    def build(self, freq='M'):
-        yearly_avgs = self.frequency_by_year(freq=freq)
-        timeline_data = self.line_chart(yearly_avgs)
-        yearly_stats = self.getYearlyStats(yearly_avgs)
+    def getMostRecentCfs(self):
+        df = self.data
+        most_recent_record = df.loc[df.index.max()]
+        # CFS col names are variable but they are always first
+        most_recent_cfs = most_recent_record[df.columns[0]]
+        return most_recent_cfs
+
+    def build(self, freq=None):
+        if freq is None and self.period is not None:
+            # gets lst letter from hydrofunction periods like P7D
+            freq = self.period[-1:]
         site_info = self.site_info()
-        data = {
-            'info': site_info,
-            'stats': {
-                'yearly': yearly_stats
-            },
-            'charts': {
-                'timeline': timeline_data
-            }
-        }
+        data = {'info': site_info}
+        if self.data is not None:
+            yearly_avgs = self.frequency_by_year(freq=freq)
+            timeline_data = self.line_chart(yearly_avgs)
+            yearly_stats = self.getYearlyStats(yearly_avgs)
+            data['stats'] = {'yearly': yearly_stats}
+            data['charts'] = {'timeline': timeline_data}
         return data
+
 
 def getSiteData():
     config = utils.getConfig()
     data_list = config['wave_sites']
     return data_list
+
 
 if __name__ == "__main__":
     boiseRiver = '13206000'
