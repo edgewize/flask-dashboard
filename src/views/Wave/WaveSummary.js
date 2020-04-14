@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Badge, Card, CardBody, CardHeader, Button } from "reactstrap";
+import { Badge, Card, CardBody, CardHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 import { buildApiUrl } from "../../utils";
 import LineChart from "./LineChart";
@@ -44,24 +44,26 @@ class WaveSummary extends Component {
   }
 
   render() {
+    debugger;
     return (
       <Card>
         <Loader isLoading={this.state.isLoading}>
           {!this.state.isLoading && (
             <React.Fragment>
               <CardHeader>
+              <Link to={"/wave/" + this.props.site_id}>
                 {this.state.data.info.site_name}
+                </Link>
                 <div className="card-header-actions">
-                  {this.state.data.info.status}
                   <Badge
-                    color={this.state.data.info.status ? "primary" : "warning"}
+                    color={this.state.data.info.status ? "success" : "secondary"}
                     className="float-right"
                   >
-                    <h6 className="mb-0">{this.state.data.info.status ? "IN SESSION" : "NO SUFING"}</h6>
+                    <h6 className="mb-0">{this.state.data.info.status ? "IN SESSION" : "NO SURFING"}</h6>
                   </Badge>
                 </div>
               </CardHeader>
-              <CardBody>
+              <CardBody className="text-center">
                 {this.state.data.charts && (
                   <LineChart
                     data={this.state.data.charts.timeline}
@@ -69,10 +71,9 @@ class WaveSummary extends Component {
                   />
                 )}
                 {this.state.data.info.most_recent_cfs} CFS on{" "}
-                {this.state.data.info.end_date}
-                <Button tag={Link} to={"/wave/" + this.props.site_id}>
-                  Info
-                </Button>
+                {this.state.data.info.end_date}.{" "}<Link to={"/wave/" + this.props.site_id}>
+                  More...
+                  </Link>
               </CardBody>
             </React.Fragment>
           )}

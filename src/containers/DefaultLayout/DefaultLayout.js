@@ -12,7 +12,7 @@ import {
   AppSidebarHeader,
   AppSidebarMinimizer,
   AppBreadcrumb2 as AppBreadcrumb,
-  AppSidebarNav2 as AppSidebarNav
+  AppSidebarNav2 as AppSidebarNav,
 } from "@coreui/react";
 // routes config
 import routes from "../../routes";
@@ -25,7 +25,7 @@ class DefaultLayout extends Component {
     super(props);
     this.state = {
       isLoading: true,
-      data: null
+      navConfig: null,
     };
   }
 
@@ -38,33 +38,49 @@ class DefaultLayout extends Component {
   //   this.props.history.push("/login");
   // }
 
-  getSiteData() {
+  buildSideNav() {
+    let static_nav_items = [
+      {
+        name: "Home",
+        url: "/",
+        icon: "icon-home",
+      },
+      {
+        title: true,
+        name: "Idaho",
+        wrapper: {
+          element: "",
+          attributes: {},
+        },
+      },
+    ];
     let api_target =
       process.env.NODE_ENV === "development" ? "http://127.0.0.1:9999" : "";
     let fetch_path = api_target + "/api/sites/getinfo";
     fetch(fetch_path)
-      .then(res => res.json())
-      .then(result => {
-        let nav_recs = result.map(record => {
+      .then((res) => res.json())
+      .then((result) => {
+        let site_nav_items = result.map((record) => {
           let d = {
             name: record["name"],
             url: "/wave/" + record["site_id"],
-            icon: "icon-pencil"
+            icon: "icon-star",
           };
           return d;
         });
         this.setState({
           isLoading: false,
-          data: {items:nav_recs}
+          navConfig: { items: [...static_nav_items, ...site_nav_items] },
         });
       });
   }
 
   componentDidMount() {
-    this.getSiteData();
+    this.buildSideNav();
   }
 
   render() {
+    // debugger;
     return (
       <div className="app">
         <div className="app-body">
@@ -74,7 +90,7 @@ class DefaultLayout extends Component {
             <Suspense>
               {!this.state.isLoading && (
                 <AppSidebarNav
-                  navConfig={this.state.data}
+                  navConfig={this.state.navConfig}
                   {...this.props}
                   router={router}
                 />
@@ -95,7 +111,7 @@ class DefaultLayout extends Component {
                         path={route.path}
                         exact={route.exact}
                         name={route.name}
-                        render={props => <route.component {...props} />}
+                        render={(props) => <route.component {...props} />}
                       />
                     ) : null;
                   })}

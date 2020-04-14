@@ -41,7 +41,7 @@ class Dashboard(object):
             most_recent = self.getMostRecentCfs()
             data['most_recent_cfs'] = most_recent
             info = [i for i in utils.getConfig()['wave_sites']
-                    if i['site_id'] == self.siteId]
+                    if int(i['site_id']) == int(self.siteId)]
             if len(info) > 0:
                 info = info[0]
                 now_above_min = int(most_recent) > int(info['session']['low'])
@@ -65,7 +65,7 @@ class Dashboard(object):
         # Formats dataframe for consumption by ChartJs on front end
         labels = [str(i).split('T')[0] for i in df.index.values]
         datasets = []
-        colors = ['red', 'green', 'blue', 'orange', 'purple',
+        colors = ['#FF6384','#36A2EB','#FFCE56', 'blue', 'orange', 'purple',
                   'yellow', 'gray', 'pink', 'cyan', 'magenta']
         for i in range(0, len(df.columns)):
             label = df.columns[i]
