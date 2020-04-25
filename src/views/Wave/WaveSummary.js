@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Badge, Card, CardBody, CardHeader } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 import { buildApiUrl } from "../../utils";
 import LineChart from "./LineChart";
@@ -11,9 +11,9 @@ class WaveSummary extends Component {
     this.state = {
       isLoading: true,
       query: {
-        period: "P7D"
+        period: "P7D",
       },
-      data: null
+      data: null,
     };
   }
 
@@ -24,11 +24,11 @@ class WaveSummary extends Component {
       "?period=" +
       this.state.query.period;
     fetch(fetch_path)
-      .then(res => res.json())
-      .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         this.setState({
           isLoading: false,
-          data: result
+          data: result,
         });
       });
   }
@@ -50,30 +50,23 @@ class WaveSummary extends Component {
         <Loader isLoading={this.state.isLoading}>
           {!this.state.isLoading && (
             <React.Fragment>
-              <CardHeader>
-              <Link to={"/wave/" + this.props.site_id}>
-                {this.state.data.info.site_name}
+              <CardBody>
+                <Link to={"/wave/" + this.props.site_id}>
+                  <h5>{this.state.data.info.site_name}</h5>
                 </Link>
-                <div className="card-header-actions">
-                  <Badge
-                    color={this.state.data.info.status ? "success" : "secondary"}
-                    className="float-right"
-                  >
-                    <h6 className="mb-0">{this.state.data.info.status ? "IN SESSION" : "NO SURFING"}</h6>
-                  </Badge>
+                <div>
+                  {this.state.data.charts && (
+                    <LineChart
+                      data={this.state.data.charts.timeline}
+                      height={200}
+                    />
+                  )}
                 </div>
-              </CardHeader>
-              <CardBody className="text-center">
-                {this.state.data.charts && (
-                  <LineChart
-                    data={this.state.data.charts.timeline}
-                    height={100}
-                  />
-                )}
-                {this.state.data.info.most_recent_cfs} CFS on{" "}
-                {this.state.data.info.end_date}.{" "}<Link to={"/wave/" + this.props.site_id}>
-                  More...
-                  </Link>
+                <label className={"text-center d-block mt-2 mb-0"}>
+                  {this.state.data.info.most_recent_cfs} CFS on{" "}
+                  {this.state.data.info.end_date}.{" "}
+                  <Link to={"/wave/" + this.props.site_id}>More...</Link>
+                </label>
               </CardBody>
             </React.Fragment>
           )}

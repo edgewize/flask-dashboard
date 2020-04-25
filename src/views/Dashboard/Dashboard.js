@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Jumbotron } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import SummaryGallery from "./SummaryGallery";
 
@@ -13,23 +13,20 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="animated fadeIn mt-5">
+      <div className="animated fadeIn">
         <Row>
           <Col>
-            <Jumbotron className="bg-light">
-              <h1 className="display-3">River Surf Analytics</h1>
-              <p className="lead">
+              <h1>
                 Track river flow trends for Idaho surf waves.
-              </p>
-              <hr className="my-2" />
+              </h1>
               <p>
                 Project made possible by information from the
-                <a href="https://waterdata.usgs.gov/nwis">
+                {" "}<a href="https://waterdata.usgs.gov/nwis">
                   US Geological survey
                 </a>{" "}
                 and <a href="http://riverbreak.com/">Riverbreak Magazine</a>
               </p>
-            </Jumbotron>
+              <hr className="mb-4" />
           </Col>
         </Row>
         <SummaryGallery />

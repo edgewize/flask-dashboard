@@ -1,50 +1,35 @@
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Nav, NavItem } from 'reactstrap';
-import PropTypes from 'prop-types';
-
-import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
-import logo from '../../assets/img/brand/logo.svg'
-import sygnet from '../../assets/img/brand/sygnet.svg'
-
-const propTypes = {
-  children: PropTypes.node,
-};
-
-const defaultProps = {};
+import React, { Component } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Nav, NavItem } from "reactstrap";
+import { AppSidebarToggler } from "@coreui/react";
 
 class DefaultHeader extends Component {
   render() {
-
-    // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
-
+    debugger;
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
-        <AppNavbarBrand
-          full={{ src: logo, width: 89, height: 25, alt: 'CoreUI Logo' }}
-          minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
-        />
-        <AppSidebarToggler className="d-md-down-none" display="lg" />
+        
+        <Link to="/">
+          <h4 className={"mb-0 ml-3"}>RIVER WAVE ANALYTICS</h4>
+        </Link>
 
         <Nav className="d-md-down-none" navbar>
-          <NavItem className="px-3">
-            <NavLink to="/dashboard" className="nav-link" >Dashboard</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <Link to="/users" className="nav-link">Users</Link>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink to="#" className="nav-link">Settings</NavLink>
-          </NavItem>
+          {this.props.nav.items.map((link) => (
+            <NavItem className="px-3">
+              <NavLink to="/dashboard" className="nav-link">
+                {!link.title && (
+                  <Link to={link.url} className="nav-link">
+                    {link.name}
+                  </Link>
+                )}
+              </NavLink>
+            </NavItem>
+          ))}
         </Nav>
       </React.Fragment>
     );
   }
 }
-
-DefaultHeader.propTypes = propTypes;
-DefaultHeader.defaultProps = defaultProps;
 
 export default DefaultHeader;

@@ -5,18 +5,19 @@ import { Container } from "reactstrap";
 
 import {
   AppAside,
+  AppHeader,
   AppFooter,
   AppSidebar,
   AppSidebarFooter,
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarMinimizer,
-  AppBreadcrumb2 as AppBreadcrumb,
   AppSidebarNav2 as AppSidebarNav,
 } from "@coreui/react";
 // routes config
 import routes from "../../routes";
 
+const DefaultHeader = React.lazy(() => import("./DefaultHeader"));
 const DefaultAside = React.lazy(() => import("./DefaultAside"));
 const DefaultFooter = React.lazy(() => import("./DefaultFooter"));
 
@@ -41,13 +42,8 @@ class DefaultLayout extends Component {
   buildSideNav() {
     let static_nav_items = [
       {
-        name: "Home",
-        url: "/",
-        icon: "icon-home",
-      },
-      {
         title: true,
-        name: "Idaho",
+        name: "Idaho Waves",
         wrapper: {
           element: "",
           attributes: {},
@@ -80,10 +76,16 @@ class DefaultLayout extends Component {
   }
 
   render() {
-    // debugger;
     return (
       <div className="app">
-        <div className="app-body">
+        <AppHeader>
+          <Suspense fallback={this.loading()}>
+            {!this.state.isLoading && (
+              <DefaultHeader nav={this.state.navConfig} />
+            )}
+          </Suspense>
+        </AppHeader>
+        <div className="app-body ">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
@@ -99,8 +101,7 @@ class DefaultLayout extends Component {
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
-          <main className="main">
-            <AppBreadcrumb appRoutes={routes} router={router} />
+          <main className="main mt-4">
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>
