@@ -44,7 +44,6 @@ class WaveSummary extends Component {
   }
 
   render() {
-    debugger;
     return (
       <Card>
         <Loader isLoading={this.state.isLoading}>

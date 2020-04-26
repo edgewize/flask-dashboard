@@ -36,17 +36,22 @@ def flow(siteId):
     data = {'info': site_info}
     if dashboard.data is not None:
         if dashboard_args['compare_years'] is None:
-            chart_data = dashboard.frequencyByYear(time_frequency=time_frequency)
+            chart_data = dashboard.frequencyByYear(
+                time_frequency=time_frequency)
+            stats_data = chart_data
         else:
-            # import pdb; pdb.set_trace()
             compare_years = [int(i)
-                         for i in dashboard_args['compare_years'].split(',')]
+                             for i in dashboard_args['compare_years'].split(',')]
             chart_data = dashboard.avgComparison(
                 compare_years, time_frequency=time_frequency)
-        yearly_stats = dashboard.getYearlyStats(chart_data)
+            stats_data = dashboard.multiYearComparison(
+                compare_years, time_frequency=time_frequency)
+        stats = dashboard.getYearlyStats(stats_data)
         timeline = utils.lineChart(chart_data)
-        data['stats'] = {'yearly': yearly_stats}
-        data['charts'] = {'timeline': timeline}
+        above_min_counts = dashboard.countAboveMin(dashboard.data)
+        donut = utils.donutChart(above_min_counts)
+        data['stats'] = {'yearly': stats}
+        data['charts'] = {'timeline': timeline, 'session': donut}
     return jsonify(data)
 
 

@@ -5,7 +5,6 @@ import { AppSidebarToggler } from "@coreui/react";
 
 class DefaultHeader extends Component {
   render() {
-    debugger;
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />

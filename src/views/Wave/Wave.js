@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Row,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-} from "reactstrap";
+import { Col, Row, Card, CardBody } from "reactstrap";
 import LineChart from "./LineChart";
 import StatsTable from "./StatsTable";
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { buildApiUrl } from "../../utils";
 import Loader from "../../components/Loader";
+import Settings from "./Settings";
+import DonutChart from "./DonutChart";
 
 class Wave extends Component {
   constructor(props) {
@@ -21,13 +15,14 @@ class Wave extends Component {
       isLoading: true,
       query: {
         start_date: new Date("2019-01-02"),
-        compare_years: [2019],
+        compare_years: "2019",
         period: "P30D",
         freq: "D",
       },
       data: null,
       site_info: null,
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (value, id) => {
@@ -82,33 +77,12 @@ class Wave extends Component {
   }
 
   render() {
-    function range(start, end) {
-      var ans = [];
-      for (let i = start; i <= end; i++) {
-        ans.push(i);
-      }
-      return ans;
-    }
-
     let site_name = null;
     try {
       site_name = this.state.data.info.site_name;
     } catch (TypeError) {
-      site_name = null;
+      site_name = null; // JS continue?
     }
-    let compare_years = {
-      this_year: null,
-      last_year: [2019].join(),
-      three_years: range(2017, 2019).join(),
-      ten_years: range(2010, 2019).join(),
-    };
-
-    let time_periods = {
-      last_week: "P7" + this.state.query.freq,
-      last_month: "P30" + this.state.query.freq,
-      last_quarter: "P90" + this.state.query.freq,
-      last_year: "P300" + this.state.query.freq,
-    };
 
     return (
       <React.Fragment>
@@ -118,77 +92,17 @@ class Wave extends Component {
             <Card>
               <CardBody>
                 <h2>Settings</h2>
-                <label className={"mt-4"}>Days to include</label>
-                <ButtonGroup vertical style={{ width: "100%" }}>
-                  {Object.entries(time_periods).map(([key, value]) => (
-                    <Button
-                      key={key}
-                      color={
-                        this.state.query.period === value
-                          ? "primary"
-                          : "secondary"
-                      }
-                      value={value}
-                      onClick={(e) =>
-                        this.handleChange(e.currentTarget.value, "period")
-                      }
-                    >
-                      {key}
-                    </Button>
-                  ))}
-                </ButtonGroup>
-                <label className={"mt-4"}>Graph interval</label>
-                <ButtonGroup vertical style={{ width: "100%" }}>
-                  {Object.entries({
-                    Daily: "D",
-                    Weekly: "W",
-                    Month: "M",
-                  }).map(([key, value]) => (
-                    <Button
-                      key={key}
-                      color={
-                        this.state.query.freq === value
-                          ? "primary"
-                          : "secondary"
-                      }
-                      value={value}
-                      onClick={(e) =>
-                        this.handleChange(e.currentTarget.value, "freq")
-                      }
-                    >
-                      {key}
-                    </Button>
-                  ))}
-                </ButtonGroup>
-                <label className={"mt-4"}>Compare to</label>
-                <ButtonGroup vertical style={{ width: "100%" }}>
-                  {Object.entries(compare_years).map(([key, value]) => (
-                    <Button
-                      key={key}
-                      color={
-                        this.state.query.compare_years === value
-                          ? "primary"
-                          : "secondary"
-                      }
-                      value={value}
-                      onClick={(e) =>
-                        this.handleChange(
-                          e.currentTarget.value,
-                          "compare_years"
-                        )
-                      }
-                    >
-                      {key}
-                    </Button>
-                  ))}
-                </ButtonGroup>
+                <Settings
+                  handleChange={this.handleChange}
+                  query={this.state.query}
+                />
               </CardBody>
             </Card>
           </Col>
           <Col md="10">
             <Card>
               <CardBody>
-                <h2>River flow timeline (CFS)</h2>
+                <h2>Cubic feet per second (CFS)</h2>
                 <Loader isLoading={this.state.isLoading}>
                   {!this.state.isLoading && (
                     <LineChart
@@ -199,15 +113,32 @@ class Wave extends Component {
                 </Loader>
               </CardBody>
             </Card>
-            <Card>
-              <CardBody>
-                <Loader isLoading={this.state.isLoading}>
-                  {!this.state.isLoading && (
-                    <StatsTable data={this.state.data.stats.yearly} />
-                  )}
-                </Loader>
-              </CardBody>
-            </Card>
+            <Row>
+              <Col md="6">
+                <Card>
+                  <CardBody>
+                    <h2>CFS stats</h2>
+                    <Loader isLoading={this.state.isLoading}>
+                      {!this.state.isLoading && (
+                        <StatsTable data={this.state.data.stats.yearly} />
+                      )}
+                    </Loader>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col md="6">
+                <Card>
+                  <CardBody>
+                    <h2>Time in session</h2>
+                    <Loader isLoading={this.state.isLoading}>
+                      {!this.state.isLoading && (
+                        <DonutChart data={this.state.data.charts.session} />
+                      )}
+                    </Loader>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </React.Fragment>

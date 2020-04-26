@@ -8,20 +8,14 @@ ROOT_DIR = os.getcwd()[:os.getcwd().find(
     PROJECT_NAME)+len(PROJECT_NAME)]
 
 
-HYDROFUNCTION_ARGS = ['start_date', 'end_date', 'period'] 
+HYDROFUNCTION_ARGS = ['start_date', 'end_date', 'period']
+
 
 def getConfig():
     path = ROOT_DIR + '/config.json'
     with open(path) as json_file:
         config = json.load(json_file)
     return config
-# PROJECT_FILES = ['film', 'cast', 'filmCast']
-
-# def saveJsonData(jsonData, fileName):
-#     path = f'{ROOT_DIR}\\build\\data\\{fileName}.json'
-#     with open(path, 'w') as outfile:
-#             json.dump(jsonData, outfile)
-#     return (f'saved to  {path}')
 
 
 def lineChart(df):
@@ -34,7 +28,7 @@ def lineChart(df):
     for i in range(0, len(df.columns)):
         label = df.columns[i]
         color = colors[i]
-        data = list(df[df.columns[i]].values)
+        data = [int(i) for i in df[df.columns[i]]]
         dset = {
             'label': str(label),
             'backgroundColor': 'transparent',
@@ -46,3 +40,24 @@ def lineChart(df):
         'labels': labels,
         'datasets': datasets
     }
+
+
+def donutChart(df):
+    labels = list(df.index)
+    datasets = []
+    for col in df.columns:
+        data = [int(i) for i in df[col].values]
+        # data = list(df[col].values)
+        colors = ['#36A2EB', '#d0d0d0']
+        hoverColors = ['#36A2EB', '#d0d0d0']
+        dataset = {
+            'data': data,
+            'backgroundColor': colors,
+            'hoverBackgroungColor': hoverColors
+        }
+        datasets.append(dataset)
+    donut = {
+        'labels': labels,
+        'datasets': datasets
+    }
+    return donut

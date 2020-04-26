@@ -22,10 +22,13 @@ def passHydroArgs(site_id, start_date=None, end_date=None, period=None):
     return hf
 
 
-def getSiteData():
+def getSiteData(site_id=None):
     config = utils.getConfig()
     data_list = config['wave_sites']
-    return data_list
+    if site_id:
+        return [i for i in data_list if i['site_id'] == int(site_id)][0]
+    else:
+        return data_list
 
 
 def formatHydroDf(df, name):
@@ -56,8 +59,8 @@ class Dashboard(object):
     def __init__(self, site_id, hydro_args):
         """
         hydro_args = {
-            'start_date': 'yyyy-mm-dd',
-            'end_date': 'yyyy-mm-dd',
+            'start_date': 'yyyy-mm-dd' | None,
+            'end_date': 'yyyy-mm-dd' | None,
             'period': 'P7D' # Hyrdrofunctions date string 
         }
         """
@@ -68,12 +71,13 @@ class Dashboard(object):
             except KeyError:
                 hydro_args[i] = None
         self.site_id = site_id
+        self.site_info = getSiteData(site_id=self.site_id)
         self.period = hydro_args['period']
         self.start_date = hydro_args['start_date']
         self.end_date = hydro_args['end_date']
-        self.hf = passHydroArgs(site_id, 
+        self.hf = passHydroArgs(site_id,
                                 start_date=self.start_date,
-                                end_date=self.end_date, 
+                                end_date=self.end_date,
                                 period=self.period)
         self.today = datetime.datetime.today().date()
         try:
@@ -104,6 +108,7 @@ class Dashboard(object):
             'site_name': self.hf.siteName,
             'start_date': start_date,
             'end_date': self.end_date,
+            'session': self.site_info['session']
         }
         if self.data is not None:
             most_recent = self.getMostRecentCfs()
@@ -153,6 +158,11 @@ class Dashboard(object):
             lambda x: lookupTimeFrequency(x, time_frequency))
         agg_df = df.groupby(time_frequency).sum().drop('cfs', 1)
         agg_df = agg_df[agg_df > 0].dropna()
+        new_index = df.groupby(pd.Grouper(freq=time_frequency)).sum()[
+            self.today.year]
+        new_index = new_index[new_index > 0].index
+        agg_df['new_index'] = new_index
+        agg_df = agg_df.set_index('new_index')
         return agg_df
 
     def avgComparison(self, years, time_frequency='M'):
@@ -179,20 +189,27 @@ class Dashboard(object):
             result.append(s)
         return result
 
+    def addSessionInfo(self, df):
+        # adds session min to df in case we want it on a graph
+        df['session_min'] = self.site_info['session']['low']
+        return df
+
+    def countAboveMin(self, df):
+        question_field_name = 'is_above_min'
+        df[question_field_name] = self.data[self.today.year].apply(
+            lambda x: True if x > self.site_info['session']['low'] else False)
+        above_min_counts = df.groupby(question_field_name).count()
+        return above_min_counts
+
 
 if __name__ == "__main__":
     site_id = '13206000'
-    d = Dashboard(site_id)
-    time_frequency = 'M'
-    df = d.data
-    years = [2019, 2018]
-    new_dfs = [d.yoyComparison(i) for i in years]
-    df = df.join(new_dfs, how='outer')
-    df = df.groupby(pd.Grouper(freq=time_frequency)).mean()
-    df['cfs'] = df.sum(axis=1)  # daily cfs for entire period
-    df['index'] = df.index  # copy index so we can apply easier
-    df[time_frequency] = df['index'].apply(
-        lambda x: lookupTimeFrequency(x, time_frequency))
-    agg_df = df.groupby(time_frequency).sum().drop('cfs', 1)
-    agg_df = agg_df[agg_df > 0].dropna()
-    print(agg_df)
+    args = {
+        'start_date': None,
+        'end_date': None,
+        'period': 'P30D'
+    }
+    d = Dashboard(site_id, args)
+    above_min_counts = d.countAboveMin(d.data)
+    t = utils.donutChart(above_min_counts)
+    print(t)
