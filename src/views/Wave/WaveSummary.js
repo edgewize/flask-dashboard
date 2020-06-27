@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Card, CardBody } from "reactstrap";
-import { Link } from "react-router-dom";
 import { buildApiUrl } from "../../utils";
 import LineChart from "./LineChart";
 import Loader from "../../components/Loader";
+import { Link } from "react-router-dom";
 
 class WaveSummary extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class WaveSummary extends Component {
       isLoading: true,
       query: {
         period: "P7D",
+        freq: "D"
       },
       data: null,
     };
@@ -22,7 +23,9 @@ class WaveSummary extends Component {
     let fetch_path =
       buildApiUrl("/api/flow/" + site_id) +
       "?period=" +
-      this.state.query.period;
+      this.state.query.period +
+      "&freq=" +
+      this.state.query.freq;
     fetch(fetch_path)
       .then((res) => res.json())
       .then((result) => {
@@ -44,28 +47,30 @@ class WaveSummary extends Component {
   }
 
   render() {
+    let site_name = null;
+    try {
+      let meta = this.state.data.meta;
+      site_name = meta[Object.keys(meta)[0]].siteName;
+    } catch (TypeError) {
+      site_name = null;
+    }
     return (
       <Card>
         <Loader isLoading={this.state.isLoading}>
           {!this.state.isLoading && (
             <React.Fragment>
               <CardBody>
-                {/* <Link to={"/wave/" + this.props.site_id}> */}
-                  {/* <h5>{this.state.data.info.site_name}</h5> */}
-                {/* </Link> */}
+                <Link to={"/wave/" + this.props.site_id}>
+                <h5>{site_name}</h5>
+                </Link>
                 <div>
                   {this.state.data && (
-                    <LineChart
-                      data={this.state.data.timeSeries}
-                      height={200}
-                    />
+                    <LineChart data={this.state.data} height={200} />
                   )}
                 </div>
-                {/* <label className={"text-center d-block mt-2 mb-0"}>
-                  {this.state.data.info.most_recent_cfs} CFS on{" "}
-                  {this.state.data.info.end_date}.{" "}
+                <label className={"text-center d-block mt-2 mb-0"}>
                   <Link to={"/wave/" + this.props.site_id}>More...</Link>
-                </label> */}
+                </label>
               </CardBody>
             </React.Fragment>
           )}

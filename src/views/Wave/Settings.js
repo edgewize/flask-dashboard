@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import { Button, ButtonGroup } from "reactstrap";
 
 class Settings extends Component {
-
   formatSettingKey(key) {
     let replace = key.split("_").join(" ");
     let upcase = replace.charAt(0).toUpperCase() + replace.substring(1);
-    return upcase;    
+    return upcase;
   }
 
   render() {
-
     const settings = {
       period: {
         last_week: "P7D",
@@ -18,22 +16,23 @@ class Settings extends Component {
         last_quarter: "P90D",
         last_year: "P365D",
         last_five_years: "P1825D",
-        last_ten_years: "P3650D"
+        last_ten_years: "P3650D",
       },
       freq: {
         day: "D",
         week: "W",
         month: "M",
-        year: "Y"
-      }
+        year: "Y",
+      },
     };
+
 
     return (
       <React.Fragment>
         {Object.entries(settings).map(([label, options]) => (
           <React.Fragment>
-            <label className={"mt-4"}>{this.formatSettingKey(label)}</label>
-            <ButtonGroup vertical style={{ width: "100%" }}>
+            {/* <label className={"mt-4"}>{this.formatSettingKey(label)}</label> */}
+            <ButtonGroup className="mr-3">
               {Object.entries(options).map(([key, value]) => (
                 <Button
                   key={key}

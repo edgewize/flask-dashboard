@@ -1,49 +1,23 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import WaveSummary from "../Wave/WaveSummary";
-import { buildApiUrl } from "../../utils";
-import Loader from "../../components/Loader";
 
 class SummaryGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
-      data: null
+      data: [13206000, 13247500, 13337000, 13246000],
     };
   }
-
-  getSiteData() {
-    let fetch_path = buildApiUrl("/api/sites/getinfo");
-    fetch(fetch_path)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          isLoading: false,
-          data: result
-        });
-      });
-  }
-
-  componentDidMount() {
-    this.getSiteData();
-  }
-
   render() {
     return (
-      <Loader isLoading={this.state.isLoading}>
-        <Row>
-          {!this.state.isLoading &&
-            this.state.data.map(record => (
-              <Col md="4">
-                <WaveSummary
-                  key={record["site_id"]}
-                  site_id={record["site_id"]}
-                />
-              </Col>
-            ))}
-        </Row>
-      </Loader>
+      <Row>
+        {this.state.data.map((site_id) => (
+          <Col md="6">
+            <WaveSummary key={site_id} site_id={site_id} />
+          </Col>
+        ))}
+      </Row>
     );
   }
 }

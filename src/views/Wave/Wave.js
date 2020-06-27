@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Col, Row, Card, CardBody } from "reactstrap";
 import LineChart from "./LineChart";
-import StatsTable from "./StatsTable";
 import "react-datepicker/dist/react-datepicker.css";
 import { buildApiUrl } from "../../utils";
 import Loader from "../../components/Loader";
 import Settings from "./Settings";
-import DonutChart from "./DonutChart";
+
 
 class Wave extends Component {
   constructor(props) {
@@ -79,27 +78,21 @@ class Wave extends Component {
     let site_name = null;
     try {
       let meta = this.state.data.meta;
-      site_name = meta[Object.keys(meta)[0]
-      ].siteName;
+      site_name = meta[Object.keys(meta)[0]].siteName;
     } catch (TypeError) {
       site_name = null;
     }
     return (
       <React.Fragment>
-        {site_name && <h1 className={"mb-3"}>{site_name}</h1>}
         <Row>
-          <Col md="2">
+          <Col md="12">
             <Card>
               <CardBody>
-                <h2>Settings</h2>
-                <Settings
-                  handleChange={this.handleChange}
-                  query={this.state.query}
-                />
+                {site_name && <h1 className={"mb-0"}>{site_name}</h1>}
               </CardBody>
             </Card>
           </Col>
-          <Col md="10">
+          <Col md="12">
             <Card>
               <CardBody>
                 <h2>Cubic feet per second (CFS)</h2>
@@ -110,32 +103,16 @@ class Wave extends Component {
                 </Loader>
               </CardBody>
             </Card>
-            {/* <Row>
-              <Col md="6">
-                <Card>
-                  <CardBody>
-                    <h2>CFS stats</h2>
-                    <Loader isLoading={this.state.isLoading}>
-                      {!this.state.isLoading && (
-                        <StatsTable data={this.state.data.stats.yearly} />
-                      )}
-                    </Loader>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card>
-                  <CardBody>
-                    <h2>Time in session</h2>
-                    <Loader isLoading={this.state.isLoading}>
-                      {!this.state.isLoading && (
-                        <DonutChart data={this.state.data.charts.session} />
-                      )}
-                    </Loader>
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row> */}
+          </Col>
+          <Col md="12">
+            <Card className="text-center">
+              <CardBody>
+                <Settings
+                  handleChange={this.handleChange}
+                  query={this.state.query}
+                />
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </React.Fragment>
