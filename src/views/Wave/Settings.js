@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, ButtonGroup } from "reactstrap";
-import { range } from "../../utils";
 
 class Settings extends Component {
 
@@ -11,28 +10,22 @@ class Settings extends Component {
   }
 
   render() {
-    let compare_years = {
-      last_year: "2019",
-      three_years: range(2017, 2019).join(),
-      ten_years: range(2010, 2019).join(),
-    };
 
-    let time_periods = {
-      last_week: "P7D",
-      last_month: "P30D",
-      last_quarter: "P90D"
-    };
-
-    let freq_intervals = {
-      Daily: "D",
-      Weekly: "W",
-      Monthly: "M",
-    };
-
-    let settings = {
-      compare_years: compare_years,
-      period: time_periods,
-      freq: freq_intervals,
+    const settings = {
+      period: {
+        last_week: "P7D",
+        last_month: "P30D",
+        last_quarter: "P90D",
+        last_year: "P365D",
+        last_five_years: "P1825D",
+        last_ten_years: "P3650D"
+      },
+      freq: {
+        day: "D",
+        week: "W",
+        month: "M",
+        year: "Y"
+      }
     };
 
     return (

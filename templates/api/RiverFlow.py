@@ -3,10 +3,7 @@ import hydrofunctions
 import datetime
 from dateutil.relativedelta import relativedelta
 import os
-if 'hello' in os.getcwd():
-    import utils
-else:
-    import templates.hello.utils as utils
+import templates.utils as utils
 
 
 def passHydroArgs(site_id, start_date=None, end_date=None, period=None):

@@ -50,22 +50,22 @@ class WaveSummary extends Component {
           {!this.state.isLoading && (
             <React.Fragment>
               <CardBody>
-                <Link to={"/wave/" + this.props.site_id}>
-                  <h5>{this.state.data.info.site_name}</h5>
-                </Link>
+                {/* <Link to={"/wave/" + this.props.site_id}> */}
+                  {/* <h5>{this.state.data.info.site_name}</h5> */}
+                {/* </Link> */}
                 <div>
-                  {this.state.data.charts && (
+                  {this.state.data && (
                     <LineChart
-                      data={this.state.data.charts.timeline}
+                      data={this.state.data.timeSeries}
                       height={200}
                     />
                   )}
                 </div>
-                <label className={"text-center d-block mt-2 mb-0"}>
+                {/* <label className={"text-center d-block mt-2 mb-0"}>
                   {this.state.data.info.most_recent_cfs} CFS on{" "}
                   {this.state.data.info.end_date}.{" "}
                   <Link to={"/wave/" + this.props.site_id}>More...</Link>
-                </label>
+                </label> */}
               </CardBody>
             </React.Fragment>
           )}

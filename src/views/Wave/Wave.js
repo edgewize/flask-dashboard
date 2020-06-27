@@ -20,7 +20,6 @@ class Wave extends Component {
         freq: "D",
       },
       data: null,
-      site_info: null,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -79,11 +78,12 @@ class Wave extends Component {
   render() {
     let site_name = null;
     try {
-      site_name = this.state.data.info.site_name;
+      let meta = this.state.data.meta;
+      site_name = meta[Object.keys(meta)[0]
+      ].siteName;
     } catch (TypeError) {
-      site_name = null; // JS continue?
+      site_name = null;
     }
-
     return (
       <React.Fragment>
         {site_name && <h1 className={"mb-3"}>{site_name}</h1>}
@@ -105,15 +105,12 @@ class Wave extends Component {
                 <h2>Cubic feet per second (CFS)</h2>
                 <Loader isLoading={this.state.isLoading}>
                   {!this.state.isLoading && (
-                    <LineChart
-                      data={this.state.data.charts.timeline}
-                      height={300}
-                    />
+                    <LineChart data={this.state.data} height={300} />
                   )}
                 </Loader>
               </CardBody>
             </Card>
-            <Row>
+            {/* <Row>
               <Col md="6">
                 <Card>
                   <CardBody>
@@ -138,7 +135,7 @@ class Wave extends Component {
                   </CardBody>
                 </Card>
               </Col>
-            </Row>
+            </Row> */}
           </Col>
         </Row>
       </React.Fragment>

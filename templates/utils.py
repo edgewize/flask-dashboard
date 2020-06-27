@@ -8,7 +8,7 @@ ROOT_DIR = os.getcwd()[:os.getcwd().find(
     PROJECT_NAME)+len(PROJECT_NAME)]
 
 
-HYDROFUNCTION_ARGS = ['start_date', 'end_date', 'period']
+HYDROFUNCTION_ARGS = ['period', 'freq']
 
 
 def getConfig():
@@ -61,3 +61,9 @@ def donutChart(df):
         'datasets': datasets
     }
     return donut
+
+
+def saveJson(data, path):
+    with open(path, 'w') as outfile:
+        json.dump(data, outfile)
+    return f'Saved {path}'

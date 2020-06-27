@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import * as router from "react-router-dom";
 import { Container } from "reactstrap";
 
 import {
@@ -12,12 +11,12 @@ import {
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarMinimizer,
-  AppSidebarNav2 as AppSidebarNav,
+  // AppSidebarNav2 as AppSidebarNav,
 } from "@coreui/react";
 // routes config
 import routes from "../../routes";
 
-const DefaultHeader = React.lazy(() => import("./DefaultHeader"));
+// const DefaultHeader = React.lazy(() => import("./DefaultHeader"));
 const DefaultAside = React.lazy(() => import("./DefaultAside"));
 const DefaultFooter = React.lazy(() => import("./DefaultFooter"));
 
@@ -72,24 +71,24 @@ class DefaultLayout extends Component {
   }
 
   componentDidMount() {
-    this.buildSideNav();
+    // this.buildSideNav();
   }
 
   render() {
     return (
       <div className="app">
         <AppHeader>
-          <Suspense fallback={this.loading()}>
+          {/* <Suspense fallback={this.loading()}>
             {!this.state.isLoading && (
               <DefaultHeader nav={this.state.navConfig} />
             )}
-          </Suspense>
+          </Suspense> */}
         </AppHeader>
         <div className="app-body ">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
-            <Suspense>
+            {/* <Suspense>
               {!this.state.isLoading && (
                 <AppSidebarNav
                   navConfig={this.state.navConfig}
@@ -97,7 +96,7 @@ class DefaultLayout extends Component {
                   router={router}
                 />
               )}
-            </Suspense>
+            </Suspense> */}
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>

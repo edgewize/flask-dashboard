@@ -4,7 +4,30 @@ import { CustomTooltips } from "@coreui/coreui-plugin-chartjs-custom-tooltips";
 
 class LineChart extends Component {
   render() {
-    const mainChart = this.props.data;
+
+    let timeSeries = this.props.data.timeSeries.discharge;
+
+    let labels = [];
+    let data = [];
+
+    for (var date in timeSeries) {
+      let cfs = timeSeries[date]; 
+      data.push(cfs);
+      labels.push(date);
+    };
+
+    let dset = {
+      label: "Cubic Feet Per Second",
+      backgroundColor: "transparent",
+      borderColor: "blue",
+      data: data
+    };
+
+    let mainChart = {
+      labels: labels,
+      datasets: [dset]
+    };
+
     const mainChartOpts = {
       tooltips: {
         enabled: false,
