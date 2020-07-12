@@ -710,3 +710,279 @@
 2020-06-27 09:12:16,448:INFO:127.0.0.1 - - [27/Jun/2020 09:12:16] "GET /api/sites/getinfo HTTP/1.1" 404 -
 2020-06-27 09:13:29,209:INFO:127.0.0.1 - - [27/Jun/2020 09:13:29] "GET /api/sites/getinfo HTTP/1.1" 404 -
 2020-06-27 09:13:51,679:INFO:127.0.0.1 - - [27/Jun/2020 09:13:51] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:47:49,024:INFO:127.0.0.1 - - [27/Jun/2020 09:47:49] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:52:29,694:INFO:127.0.0.1 - - [27/Jun/2020 09:52:29] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:55:25,957:INFO:127.0.0.1 - - [27/Jun/2020 09:55:25] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:55:30,283:INFO:127.0.0.1 - - [27/Jun/2020 09:55:30] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:57:36,342:INFO:127.0.0.1 - - [27/Jun/2020 09:57:36] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:57:36,705:INFO:127.0.0.1 - - [27/Jun/2020 09:57:36] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:58:11,891:INFO:127.0.0.1 - - [27/Jun/2020 09:58:11] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 09:58:12,333:INFO:127.0.0.1 - - [27/Jun/2020 09:58:12] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:01:41,718:INFO:127.0.0.1 - - [27/Jun/2020 10:01:41] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:01:41,946:INFO:127.0.0.1 - - [27/Jun/2020 10:01:41] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:01:45,340:INFO:127.0.0.1 - - [27/Jun/2020 10:01:45] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:02:15,913:INFO:127.0.0.1 - - [27/Jun/2020 10:02:15] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:02:16,326:INFO:127.0.0.1 - - [27/Jun/2020 10:02:16] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:02:35,680:INFO:127.0.0.1 - - [27/Jun/2020 10:02:35] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:06:17,702:INFO:127.0.0.1 - - [27/Jun/2020 10:06:17] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:06:18,328:INFO:127.0.0.1 - - [27/Jun/2020 10:06:18] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:06:22,148:INFO:127.0.0.1 - - [27/Jun/2020 10:06:22] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:06:57,153:INFO:127.0.0.1 - - [27/Jun/2020 10:06:57] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:06:57,416:INFO:127.0.0.1 - - [27/Jun/2020 10:06:57] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:09:26,030:INFO:127.0.0.1 - - [27/Jun/2020 10:09:26] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:09:26,114:INFO:127.0.0.1 - - [27/Jun/2020 10:09:26] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:09:32,762:INFO:127.0.0.1 - - [27/Jun/2020 10:09:32] "GET /api/flow/10044000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 500 -
+2020-06-27 10:12:28,667:INFO:127.0.0.1 - - [27/Jun/2020 10:12:28] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:13:04,847:INFO:127.0.0.1 - - [27/Jun/2020 10:13:04] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:13:18,156:INFO:127.0.0.1 - - [27/Jun/2020 10:13:18] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:13:20,107:INFO:127.0.0.1 - - [27/Jun/2020 10:13:20] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:13:41,481:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-06-27 10:13:41,660:INFO: * Restarting with stat
+2020-06-27 10:13:42,737:WARNING: * Debugger is active!
+2020-06-27 10:13:42,737:INFO: * Debugger PIN: 504-419-620
+2020-06-27 10:14:44,662:INFO:127.0.0.1 - - [27/Jun/2020 10:14:44] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:14:52,815:INFO:127.0.0.1 - - [27/Jun/2020 10:14:52] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:15:05,431:INFO:127.0.0.1 - - [27/Jun/2020 10:15:05] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:15:05,748:INFO:127.0.0.1 - - [27/Jun/2020 10:15:05] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:15:15,094:INFO:127.0.0.1 - - [27/Jun/2020 10:15:15] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:15:15,518:INFO:127.0.0.1 - - [27/Jun/2020 10:15:15] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:16:39,051:INFO:127.0.0.1 - - [27/Jun/2020 10:16:39] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:16:40,328:INFO:127.0.0.1 - - [27/Jun/2020 10:16:40] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:17:30,668:INFO:127.0.0.1 - - [27/Jun/2020 10:17:30] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:17:31,652:INFO:127.0.0.1 - - [27/Jun/2020 10:17:31] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 10:18:16,630:INFO:127.0.0.1 - - [27/Jun/2020 10:18:16] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 10:18:18,493:INFO:127.0.0.1 - - [27/Jun/2020 10:18:18] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:16:49,843:INFO: * Running on http://127.0.0.1:9999/ (Press CTRL+C to quit)
+2020-06-27 15:16:49,844:INFO: * Restarting with stat
+2020-06-27 15:16:51,183:WARNING: * Debugger is active!
+2020-06-27 15:16:51,185:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:17:19,760:INFO:127.0.0.1 - - [27/Jun/2020 15:17:19] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 15:20:48,161:INFO:127.0.0.1 - - [27/Jun/2020 15:20:48] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:21:34,780:INFO:127.0.0.1 - - [27/Jun/2020 15:21:34] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 15:25:18,247:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-06-27 15:25:18,423:INFO: * Restarting with stat
+2020-06-27 15:25:19,723:WARNING: * Debugger is active!
+2020-06-27 15:25:19,724:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:26:42,009:INFO:127.0.0.1 - - [27/Jun/2020 15:26:42] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:26:45,016:INFO:127.0.0.1 - - [27/Jun/2020 15:26:45] "GET /api/flow/13206000?period=P90D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:26:50,317:INFO:127.0.0.1 - - [27/Jun/2020 15:26:50] "GET /api/flow/13206000?period=P90D&freq=W&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:30:02,073:INFO:127.0.0.1 - - [27/Jun/2020 15:30:02] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:30:18,659:INFO:127.0.0.1 - - [27/Jun/2020 15:30:18] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:30:56,567:INFO:127.0.0.1 - - [27/Jun/2020 15:30:56] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:31:33,817:INFO:127.0.0.1 - - [27/Jun/2020 15:31:33] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:31:55,006:INFO:127.0.0.1 - - [27/Jun/2020 15:31:55] "GET /api/flow/13206000?period=P3650D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:31:59,421:INFO:127.0.0.1 - - [27/Jun/2020 15:31:59] "GET /api/flow/13206000?period=P3650D&freq=M&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:36:42,655:INFO:127.0.0.1 - - [27/Jun/2020 15:36:42] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:43:05,324:INFO:127.0.0.1 - - [27/Jun/2020 15:43:05] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:43:14,588:INFO:127.0.0.1 - - [27/Jun/2020 15:43:14] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:43:17,059:INFO:127.0.0.1 - - [27/Jun/2020 15:43:17] "GET /api/sites/getinfo HTTP/1.1" 404 -
+2020-06-27 15:44:21,156:INFO:127.0.0.1 - - [27/Jun/2020 15:44:21] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:44:39,396:INFO:127.0.0.1 - - [27/Jun/2020 15:44:39] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:49:22,287:INFO:127.0.0.1 - - [27/Jun/2020 15:49:22] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:50:20,974:INFO:127.0.0.1 - - [27/Jun/2020 15:50:20] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:50:30,862:INFO:127.0.0.1 - - [27/Jun/2020 15:50:30] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:50:34,530:INFO:127.0.0.1 - - [27/Jun/2020 15:50:34] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:51:03,768:INFO:127.0.0.1 - - [27/Jun/2020 15:51:03] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:51:14,138:INFO:127.0.0.1 - - [27/Jun/2020 15:51:14] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:52:30,178:INFO:127.0.0.1 - - [27/Jun/2020 15:52:30] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:52:44,072:INFO:127.0.0.1 - - [27/Jun/2020 15:52:44] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:52:49,129:INFO:127.0.0.1 - - [27/Jun/2020 15:52:49] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:52:58,200:INFO:127.0.0.1 - - [27/Jun/2020 15:52:58] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:53:19,250:INFO:127.0.0.1 - - [27/Jun/2020 15:53:19] "GET /api/flow/13206000?period=P7D HTTP/1.1" 500 -
+2020-06-27 15:54:32,957:INFO:127.0.0.1 - - [27/Jun/2020 15:54:32] "GET /api/flow/13206000?period=P7D?freq=D HTTP/1.1" 500 -
+2020-06-27 15:54:49,827:INFO:127.0.0.1 - - [27/Jun/2020 15:54:49] "GET /api/flow/13206000?period=P7D?freq=D HTTP/1.1" 500 -
+2020-06-27 15:55:38,749:INFO: * Running on http://127.0.0.1:9999/ (Press CTRL+C to quit)
+2020-06-27 15:55:38,750:INFO: * Restarting with stat
+2020-06-27 15:55:39,842:WARNING: * Debugger is active!
+2020-06-27 15:55:39,843:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:56:07,594:INFO:127.0.0.1 - - [27/Jun/2020 15:56:07] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 15:56:11,305:INFO:127.0.0.1 - - [27/Jun/2020 15:56:11] "GET /api/flow/13206000?period=P7D?freq=D HTTP/1.1" 500 -
+2020-06-27 15:56:45,213:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-06-27 15:56:45,427:INFO: * Restarting with stat
+2020-06-27 15:56:46,665:WARNING: * Debugger is active!
+2020-06-27 15:56:46,666:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:58:01,711:INFO: * Running on http://127.0.0.1:9999/ (Press CTRL+C to quit)
+2020-06-27 15:58:01,712:INFO: * Restarting with stat
+2020-06-27 15:58:03,109:WARNING: * Debugger is active!
+2020-06-27 15:58:03,110:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:58:16,317:INFO:127.0.0.1 - - [27/Jun/2020 15:58:16] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 15:58:30,121:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-06-27 15:58:30,303:INFO: * Restarting with stat
+2020-06-27 15:58:31,634:WARNING: * Debugger is active!
+2020-06-27 15:58:31,635:INFO: * Debugger PIN: 504-419-620
+2020-06-27 15:58:34,528:INFO:127.0.0.1 - - [27/Jun/2020 15:58:34] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 15:59:06,118:INFO:127.0.0.1 - - [27/Jun/2020 15:59:06] "GET /api/flow/13246000?period=P7D&freq=d HTTP/1.1" 200 -
+2020-06-27 15:59:46,302:INFO:127.0.0.1 - - [27/Jun/2020 15:59:46] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:00:00,041:INFO:127.0.0.1 - - [27/Jun/2020 16:00:00] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:02:11,710:INFO:127.0.0.1 - - [27/Jun/2020 16:02:11] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:02:16,833:INFO:127.0.0.1 - - [27/Jun/2020 16:02:16] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:03:14,889:INFO:127.0.0.1 - - [27/Jun/2020 16:03:14] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:03:17,282:INFO:127.0.0.1 - - [27/Jun/2020 16:03:17] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:05:28,732:INFO:127.0.0.1 - - [27/Jun/2020 16:05:28] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:05:31,230:INFO:127.0.0.1 - - [27/Jun/2020 16:05:31] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:05:34,421:INFO:127.0.0.1 - - [27/Jun/2020 16:05:34] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:05:36,654:INFO:127.0.0.1 - - [27/Jun/2020 16:05:36] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:06:10,708:INFO:127.0.0.1 - - [27/Jun/2020 16:06:10] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:07:37,236:INFO:127.0.0.1 - - [27/Jun/2020 16:07:37] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:07:48,495:INFO:127.0.0.1 - - [27/Jun/2020 16:07:48] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:07:50,278:INFO:127.0.0.1 - - [27/Jun/2020 16:07:50] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:07:50,714:INFO:127.0.0.1 - - [27/Jun/2020 16:07:50] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:09:31,702:INFO:127.0.0.1 - - [27/Jun/2020 16:09:31] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:09:31,743:INFO:127.0.0.1 - - [27/Jun/2020 16:09:31] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:09:31,767:INFO:127.0.0.1 - - [27/Jun/2020 16:09:31] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:10:03,485:INFO:127.0.0.1 - - [27/Jun/2020 16:10:03] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:10:09,657:INFO:127.0.0.1 - - [27/Jun/2020 16:10:09] "GET /api/flow/13337000?period=P1825D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:10:21,154:INFO:127.0.0.1 - - [27/Jun/2020 16:10:21] "GET /api/flow/13206000?period=P1825D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:16,313:INFO:127.0.0.1 - - [27/Jun/2020 16:11:16] "GET /api/flow/13206000?period=P90D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:18,849:INFO:127.0.0.1 - - [27/Jun/2020 16:11:18] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:11:18,885:INFO:127.0.0.1 - - [27/Jun/2020 16:11:18] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:11:18,944:INFO:127.0.0.1 - - [27/Jun/2020 16:11:18] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:11:20,876:INFO:127.0.0.1 - - [27/Jun/2020 16:11:20] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:25,194:INFO:127.0.0.1 - - [27/Jun/2020 16:11:25] "GET /api/flow/13247500?period=P3650D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:37,585:INFO:127.0.0.1 - - [27/Jun/2020 16:11:37] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:43,634:INFO:127.0.0.1 - - [27/Jun/2020 16:11:43] "GET /api/flow/13247500?period=P90D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:52,061:INFO:127.0.0.1 - - [27/Jun/2020 16:11:52] "GET /api/flow/13247500?period=P365D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:11:57,183:INFO:127.0.0.1 - - [27/Jun/2020 16:11:57] "GET /api/flow/13247500?period=P1825D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:12:28,834:INFO:127.0.0.1 - - [27/Jun/2020 16:12:28] "GET /api/flow/13247500?period=P3650D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:12:29,873:INFO:127.0.0.1 - - [27/Jun/2020 16:12:29] "GET /api/flow/13247500?period=P3650D&freq=M&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:12:59,496:INFO:127.0.0.1 - - [27/Jun/2020 16:12:59] "GET /api/flow/13247500?period=P3650D&freq=W&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:16:21,128:INFO:127.0.0.1 - - [27/Jun/2020 16:16:21] "GET /api/flow/13246000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:16:47,431:INFO:127.0.0.1 - - [27/Jun/2020 16:16:47] "GET /api/flow/13246000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:16:50,931:INFO:127.0.0.1 - - [27/Jun/2020 16:16:50] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:17:28,106:INFO:127.0.0.1 - - [27/Jun/2020 16:17:28] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:17:28,155:INFO:127.0.0.1 - - [27/Jun/2020 16:17:28] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:17:28,290:INFO:127.0.0.1 - - [27/Jun/2020 16:17:28] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:17:28,363:INFO:127.0.0.1 - - [27/Jun/2020 16:17:28] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:19:57,390:INFO:127.0.0.1 - - [27/Jun/2020 16:19:57] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:19:57,484:INFO:127.0.0.1 - - [27/Jun/2020 16:19:57] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:19:57,496:INFO:127.0.0.1 - - [27/Jun/2020 16:19:57] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:19:57,527:INFO:127.0.0.1 - - [27/Jun/2020 16:19:57] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:22:02,706:INFO:127.0.0.1 - - [27/Jun/2020 16:22:02] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:22:02,709:INFO:127.0.0.1 - - [27/Jun/2020 16:22:02] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:22:02,715:INFO:127.0.0.1 - - [27/Jun/2020 16:22:02] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:22:02,740:INFO:127.0.0.1 - - [27/Jun/2020 16:22:02] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:22:11,358:INFO:127.0.0.1 - - [27/Jun/2020 16:22:11] "GET /api/flow/13246000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:22:15,140:INFO:127.0.0.1 - - [27/Jun/2020 16:22:15] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:22:17,913:INFO:127.0.0.1 - - [27/Jun/2020 16:22:17] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:22:56,391:INFO:127.0.0.1 - - [27/Jun/2020 16:22:56] "GET /api/flow/13247500?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:23:04,990:INFO:127.0.0.1 - - [27/Jun/2020 16:23:04] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:26:02,691:INFO:127.0.0.1 - - [27/Jun/2020 16:26:02] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:26:57,029:INFO:127.0.0.1 - - [27/Jun/2020 16:26:57] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:27:31,670:INFO:127.0.0.1 - - [27/Jun/2020 16:27:31] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:27:46,083:INFO:127.0.0.1 - - [27/Jun/2020 16:27:46] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:27:59,302:INFO:127.0.0.1 - - [27/Jun/2020 16:27:59] "GET /api/flow/13337000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:28:06,931:INFO:127.0.0.1 - - [27/Jun/2020 16:28:06] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:06,967:INFO:127.0.0.1 - - [27/Jun/2020 16:28:06] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:07,021:INFO:127.0.0.1 - - [27/Jun/2020 16:28:07] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:07,298:INFO:127.0.0.1 - - [27/Jun/2020 16:28:07] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:27,365:INFO:127.0.0.1 - - [27/Jun/2020 16:28:27] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:27,828:INFO:127.0.0.1 - - [27/Jun/2020 16:28:27] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:27,860:INFO:127.0.0.1 - - [27/Jun/2020 16:28:27] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:27,873:INFO:127.0.0.1 - - [27/Jun/2020 16:28:27] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:57,948:INFO:127.0.0.1 - - [27/Jun/2020 16:28:57] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:58,167:INFO:127.0.0.1 - - [27/Jun/2020 16:28:58] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:58,176:INFO:127.0.0.1 - - [27/Jun/2020 16:28:58] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:28:58,189:INFO:127.0.0.1 - - [27/Jun/2020 16:28:58] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:17,905:INFO:127.0.0.1 - - [27/Jun/2020 16:31:17] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:17,909:INFO:127.0.0.1 - - [27/Jun/2020 16:31:17] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:18,116:INFO:127.0.0.1 - - [27/Jun/2020 16:31:18] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:18,263:INFO:127.0.0.1 - - [27/Jun/2020 16:31:18] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:29,990:INFO:127.0.0.1 - - [27/Jun/2020 16:31:29] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:30,016:INFO:127.0.0.1 - - [27/Jun/2020 16:31:30] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:30,031:INFO:127.0.0.1 - - [27/Jun/2020 16:31:30] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:31:30,723:INFO:127.0.0.1 - - [27/Jun/2020 16:31:30] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:29,419:INFO:127.0.0.1 - - [27/Jun/2020 16:32:29] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:29,468:INFO:127.0.0.1 - - [27/Jun/2020 16:32:29] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:30,408:INFO:127.0.0.1 - - [27/Jun/2020 16:32:30] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:30,417:INFO:127.0.0.1 - - [27/Jun/2020 16:32:30] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:43,457:INFO:127.0.0.1 - - [27/Jun/2020 16:32:43] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:43,702:INFO:127.0.0.1 - - [27/Jun/2020 16:32:43] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:43,793:INFO:127.0.0.1 - - [27/Jun/2020 16:32:43] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:32:43,815:INFO:127.0.0.1 - - [27/Jun/2020 16:32:43] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:33:12,686:INFO:127.0.0.1 - - [27/Jun/2020 16:33:12] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:33:12,708:INFO:127.0.0.1 - - [27/Jun/2020 16:33:12] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:33:12,711:INFO:127.0.0.1 - - [27/Jun/2020 16:33:12] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:33:14,472:INFO:127.0.0.1 - - [27/Jun/2020 16:33:14] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:34:44,852:INFO:127.0.0.1 - - [27/Jun/2020 16:34:44] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:34:45,484:INFO:127.0.0.1 - - [27/Jun/2020 16:34:45] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:34:45,496:INFO:127.0.0.1 - - [27/Jun/2020 16:34:45] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:34:45,501:INFO:127.0.0.1 - - [27/Jun/2020 16:34:45] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:24,343:INFO:127.0.0.1 - - [27/Jun/2020 16:35:24] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:24,346:INFO:127.0.0.1 - - [27/Jun/2020 16:35:24] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:24,353:INFO:127.0.0.1 - - [27/Jun/2020 16:35:24] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:25,828:INFO:127.0.0.1 - - [27/Jun/2020 16:35:25] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:29,555:INFO:127.0.0.1 - - [27/Jun/2020 16:35:29] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:30,423:INFO:127.0.0.1 - - [27/Jun/2020 16:35:30] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:30,426:INFO:127.0.0.1 - - [27/Jun/2020 16:35:30] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:30,472:INFO:127.0.0.1 - - [27/Jun/2020 16:35:30] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:58,822:INFO:127.0.0.1 - - [27/Jun/2020 16:35:58] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:59,214:INFO:127.0.0.1 - - [27/Jun/2020 16:35:59] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:59,341:INFO:127.0.0.1 - - [27/Jun/2020 16:35:59] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:35:59,406:INFO:127.0.0.1 - - [27/Jun/2020 16:35:59] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:04,848:INFO:127.0.0.1 - - [27/Jun/2020 16:38:04] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:04,852:INFO:127.0.0.1 - - [27/Jun/2020 16:38:04] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:05,490:INFO:127.0.0.1 - - [27/Jun/2020 16:38:05] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:05,499:INFO:127.0.0.1 - - [27/Jun/2020 16:38:05] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:42,157:INFO:127.0.0.1 - - [27/Jun/2020 16:38:42] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:42,318:INFO:127.0.0.1 - - [27/Jun/2020 16:38:42] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:42,323:INFO:127.0.0.1 - - [27/Jun/2020 16:38:42] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:38:42,340:INFO:127.0.0.1 - - [27/Jun/2020 16:38:42] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:40:29,471:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET / HTTP/1.1" 200 -
+2020-06-27 16:40:29,521:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/3.d177149c.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,524:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/main.c366e86b.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,690:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/css/4.85f19f90.chunk.css HTTP/1.1" 200 -
+2020-06-27 16:40:29,693:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/4.b0e8b214.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,695:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/10.8ad24c78.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,738:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/favicon.ico HTTP/1.1" 200 -
+2020-06-27 16:40:29,785:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/css/0.b90ce945.chunk.css HTTP/1.1" 200 -
+2020-06-27 16:40:29,789:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/0.2daefbce.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,792:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/7.317d595f.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,799:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/8.6d5a0517.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,809:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/js/9.08c523a2.chunk.js HTTP/1.1" 200 -
+2020-06-27 16:40:29,811:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/media/Simple-Line-Icons.0cb0b9c5.woff2 HTTP/1.1" 200 -
+2020-06-27 16:40:29,898:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/7.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,901:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/4.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,909:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/2.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,909:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/3.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,925:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/5.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,926:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/6.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:29,929:INFO:127.0.0.1 - - [27/Jun/2020 16:40:29] "GET /static/assets/img/avatars/8.jpg HTTP/1.1" 200 -
+2020-06-27 16:40:30,719:INFO:127.0.0.1 - - [27/Jun/2020 16:40:30] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:40:30,723:INFO:127.0.0.1 - - [27/Jun/2020 16:40:30] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:40:31,357:INFO:127.0.0.1 - - [27/Jun/2020 16:40:31] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:40:31,372:INFO:127.0.0.1 - - [27/Jun/2020 16:40:31] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:41:36,638:INFO:127.0.0.1 - - [27/Jun/2020 16:41:36] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:41:37,090:INFO:127.0.0.1 - - [27/Jun/2020 16:41:37] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:41:37,095:INFO:127.0.0.1 - - [27/Jun/2020 16:41:37] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:41:37,099:INFO:127.0.0.1 - - [27/Jun/2020 16:41:37] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 200 -
+2020-06-27 16:41:41,501:INFO:127.0.0.1 - - [27/Jun/2020 16:41:41] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:42:43,597:INFO:127.0.0.1 - - [27/Jun/2020 16:42:43] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:43:07,367:INFO:127.0.0.1 - - [27/Jun/2020 16:43:07] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:43:28,051:INFO:127.0.0.1 - - [27/Jun/2020 16:43:28] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:43:34,349:INFO:127.0.0.1 - - [27/Jun/2020 16:43:34] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:43:43,298:INFO:127.0.0.1 - - [27/Jun/2020 16:43:43] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:43:52,151:INFO:127.0.0.1 - - [27/Jun/2020 16:43:52] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:44:20,216:INFO:127.0.0.1 - - [27/Jun/2020 16:44:20] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:44:43,466:INFO:127.0.0.1 - - [27/Jun/2020 16:44:43] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-06-27 16:57:44,877:INFO:127.0.0.1 - - [27/Jun/2020 16:57:44] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:15:12,037:INFO: * Running on http://127.0.0.1:9999/ (Press CTRL+C to quit)
+2020-07-12 16:15:12,039:INFO: * Restarting with stat
+2020-07-12 16:15:13,284:WARNING: * Debugger is active!
+2020-07-12 16:15:13,285:INFO: * Debugger PIN: 504-419-620
+2020-07-12 16:15:43,012:INFO:127.0.0.1 - - [12/Jul/2020 16:15:43] "GET /api/flow/13206000?period=P7D&freq=D HTTP/1.1" 500 -
+2020-07-12 16:15:43,030:INFO:127.0.0.1 - - [12/Jul/2020 16:15:43] "GET /api/flow/13337000?period=P7D&freq=D HTTP/1.1" 500 -
+2020-07-12 16:15:43,050:INFO:127.0.0.1 - - [12/Jul/2020 16:15:43] "GET /api/flow/13247500?period=P7D&freq=D HTTP/1.1" 500 -
+2020-07-12 16:15:43,061:INFO:127.0.0.1 - - [12/Jul/2020 16:15:43] "GET /api/flow/13246000?period=P7D&freq=D HTTP/1.1" 500 -
+2020-07-12 16:16:21,459:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-07-12 16:16:21,739:INFO: * Restarting with stat
+2020-07-12 16:16:23,275:WARNING: * Debugger is active!
+2020-07-12 16:16:23,277:INFO: * Debugger PIN: 504-419-620
+2020-07-12 16:16:38,047:INFO:127.0.0.1 - - [12/Jul/2020 16:16:38] "GET /api/flow/13206000?period=P30D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:16:42,765:INFO:127.0.0.1 - - [12/Jul/2020 16:16:42] "GET /api/flow/13206000?period=P90D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:16:45,571:INFO:127.0.0.1 - - [12/Jul/2020 16:16:45] "GET /api/flow/13206000?period=P3650D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:16:49,041:INFO:127.0.0.1 - - [12/Jul/2020 16:16:49] "GET /api/flow/13206000?period=P7D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:16:51,410:INFO:127.0.0.1 - - [12/Jul/2020 16:16:51] "GET /api/flow/13246000?period=P7D&freq=D&compare_years=2019 HTTP/1.1" 200 -
+2020-07-12 16:18:12,514:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/views.py', reloading
+2020-07-12 16:18:12,682:INFO: * Restarting with stat
+2020-07-12 16:18:13,871:WARNING: * Debugger is active!
+2020-07-12 16:18:13,872:INFO: * Debugger PIN: 504-419-620
