@@ -986,3 +986,9 @@
 2020-07-12 16:18:12,682:INFO: * Restarting with stat
 2020-07-12 16:18:13,871:WARNING: * Debugger is active!
 2020-07-12 16:18:13,872:INFO: * Debugger PIN: 504-419-620
+2020-07-12 16:30:11,727:INFO: * Detected change in '/home/tayloredginton/Documents/flask-dashboard/templates/api/RiverFlow.py', reloading
+2020-07-12 16:30:11,981:INFO: * Restarting with stat
+2020-07-12 16:30:38,357:INFO: * Running on http://127.0.0.1:9999/ (Press CTRL+C to quit)
+2020-07-12 16:30:38,358:INFO: * Restarting with stat
+2020-07-12 16:30:39,338:WARNING: * Debugger is active!
+2020-07-12 16:30:39,339:INFO: * Debugger PIN: 504-419-620
