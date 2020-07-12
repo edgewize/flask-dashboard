@@ -1,19 +1,14 @@
 import json
 import os
-import hydrofunctions
 import pandas as pd
 import templates.utils as utils
+# managing own hydrofunctions because latest update bloated with dependencies
+import templates.api.hydrofunctions.__init__ as hydrofunctions
 from flask import render_template, Blueprint, jsonify, request
 from flask_cors import CORS
 
 api_blueprint = Blueprint('api', __name__)
 cors = CORS(api_blueprint)
-
-
-@api_blueprint.route('/api/sites/get/<stateCd>')
-def geSites(stateCd):
-    sites = hydrofunctions.NWIS(stateCd=stateCd)
-    return jsonify(sites.json)
 
 
 def buildArgsDict(args, keep_list):
@@ -45,7 +40,6 @@ def formatSiteData(hf_request, freq='D'):
 def flow(siteId):
     args = request.args.to_dict()
     hydro_args = buildArgsDict(args, utils.HYDROFUNCTION_ARGS)
-    print(hydro_args)
     hf_request = hydrofunctions.NWIS(
         siteId,  'dv', period=hydro_args['period'])
     data = formatSiteData(hf_request, freq=hydro_args['freq'])
