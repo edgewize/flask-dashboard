@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import { CustomTooltips } from "@coreui/coreui-plugin-chartjs-custom-tooltips";
+import {hexToRgbA} from "../../utils.js";
+const colors = require('../../assets/colors.json');
+
+const chartColor = hexToRgbA(colors['cyan'], .8)
 
 class LineChart extends Component {
   render() {
@@ -19,7 +23,7 @@ class LineChart extends Component {
     let dset = {
       label: "Cubic Feet Per Second",
       backgroundColor: "transparent",
-      borderColor: "blue",
+      borderColor: chartColor,
       data: data
     };
 
@@ -33,6 +37,7 @@ class LineChart extends Component {
         enabled: false,
         custom: CustomTooltips
       },
+      legend: false,
       maintainAspectRatio: false,
       elements: {
         line: {

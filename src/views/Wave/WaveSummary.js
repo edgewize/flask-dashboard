@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardBody } from "reactstrap";
+import { Button, Card, CardBody, CardTitle, CardHeader } from "reactstrap";
 import { buildApiUrl } from "../../utils";
 import LineChart from "./LineChart";
 import Loader from "../../components/Loader";
@@ -12,7 +12,7 @@ class WaveSummary extends Component {
       isLoading: true,
       query: {
         period: "P7D",
-        freq: "D"
+        freq: "D",
       },
       data: null,
     };
@@ -59,18 +59,26 @@ class WaveSummary extends Component {
         <Loader isLoading={this.state.isLoading}>
           {!this.state.isLoading && (
             <React.Fragment>
-              <CardBody>
-                <Link to={"/wave/" + this.props.site_id}>
-                <h5>{site_name}</h5>
-                </Link>
+               <CardHeader>
+                  <span className={"h4 mb-0"}>{site_name}</span>
+                  <div className="card-header-actions">
+                  <Button
+                    color="link"
+                    tag={Link}
+                    to={"/wave/" + this.props.site_id}
+                  >
+                  <i className="fa fa-plus fa-sm mb-0 float-right"></i>
+
+                  </Button>
+                </div>
+              </CardHeader>
+               <CardBody>
                 <div>
                   {this.state.data && (
                     <LineChart data={this.state.data} height={200} />
                   )}
                 </div>
-                <label className={"text-center d-block mt-2 mb-0"}>
-                  <Link to={"/wave/" + this.props.site_id}>More...</Link>
-                </label>
+                <label className={"text-center d-block mt-2 mb-0"}></label>
               </CardBody>
             </React.Fragment>
           )}

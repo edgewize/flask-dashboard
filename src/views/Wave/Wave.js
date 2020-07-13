@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Card, CardBody } from "reactstrap";
+import { Col, Row, Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 import LineChart from "./LineChart";
 import "react-datepicker/dist/react-datepicker.css";
 import { buildApiUrl } from "../../utils";
@@ -88,14 +88,19 @@ class Wave extends Component {
           <Col md="12">
             <Card>
               <CardBody>
-                {site_name && <h1 className={"mb-0"}>{site_name}</h1>}
+              {site_name && <h1 className={"mb-0"}>{site_name}</h1>}
               </CardBody>
+
             </Card>
           </Col>
           <Col md="12">
             <Card>
+              <CardHeader>
+                <CardTitle className={"h3 mb-0"}>
+                Cubic feet per second (CFS)
+                </CardTitle>
+              </CardHeader>
               <CardBody>
-                <h2>Cubic feet per second (CFS)</h2>
                 <Loader isLoading={this.state.isLoading}>
                   {!this.state.isLoading && (
                     <LineChart data={this.state.data} height={300} />
