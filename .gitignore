@@ -4,3 +4,4 @@ __pycache__/
 config.json
 templates/__pycache__/__init__.cpython-36.pyc
 __pycache__/configurations.cpython-36.pyc
+hydrofunctions_testing.log
