@@ -1,5 +1,6 @@
-import templates.utils as utils
+import os
 from flask import Flask
+import templates.utils as utils
 from templates.hello.views import hello_blueprint
 from templates.api.views import api_blueprint
 
@@ -8,5 +9,6 @@ app = Flask(__name__,
             template_folder=utils.ROOT_DIR + '/build')
 
 # register the blueprints
-app.register_blueprint(hello_blueprint)
-app.register_blueprint(api_blueprint)
+blueprints = [hello_blueprint, api_blueprint]
+
+[app.register_blueprint(blueprint) for blueprint in blueprints]

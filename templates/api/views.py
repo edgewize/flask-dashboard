@@ -44,3 +44,15 @@ def flow(siteId):
         siteId,  'dv', period=hydro_args['period'])
     data = formatSiteData(hf_request, freq=hydro_args['freq'])
     return jsonify(data)
+
+# @pmt_blueprint.route('/api/<module_name>/<class_name>/<method_name>', methods=['POST', 'GET'])
+# def method_caller(module_name, class_name, method_name):
+#     """
+#     Imports module, inits class, and calls method with kwargs
+#     """
+#     full_module_name = "templates.pmt.lib." + module_name
+#     module_to_import = importlib.import_module(full_module_name)
+#     class_to_call = getattr(module_to_import, class_name)
+#     method_to_call = getattr(class_to_call(), method_name)
+#     data = method_to_call(**request.args)
+#     return jsonify(data)

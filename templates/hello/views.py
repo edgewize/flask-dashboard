@@ -10,6 +10,3 @@ cors = CORS(hello_blueprint)
 @hello_blueprint.route('/')
 def index():
     return render_template("index.html")
-
-
-
