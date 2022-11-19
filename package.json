@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "npm-watch": "^0.6.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "watch": "react-scripts start",
